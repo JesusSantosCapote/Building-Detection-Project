@@ -66,6 +66,8 @@ train_images_path = os.path.join(train_path, "images")
 val_annot_path = os.path.join(val_path,"annotations")
 val_images_path = os.path.join(val_path, "images")
 
+best_model_path = os.path.join(path, "checkpoint", "best.pt ")
+
 # copy_raw_datasets(raw_train_path, train_images_path, train_annot_path)
 # copy_raw_datasets(raw_val_path, val_images_path, val_annot_path)
 
@@ -119,6 +121,8 @@ Now lets take an image from the test set and try to predict on it
 
 # pick one image from the test set
 img, target = val_dataset[7]
+
+model.load_state_dict(torch.load(best_model_path))
 
 # put the model in evaluation mode
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')

@@ -12,7 +12,9 @@ from torch.utils.tensorboard import SummaryWriter
 
 """Let the training begin!"""
 path = os.getcwd()
+checkpoint_folder = os.path.join(path, "checkpoint")
 checkpoint_path = os.path.join(path, "checkpoint", "checkpoint.pt ")
+best_model_path = os.path.join(path, "checkpoint", "best.pt ")
 
 writer = SummaryWriter()
 metric = MeanAveragePrecision()
@@ -20,8 +22,16 @@ metric = MeanAveragePrecision()
 def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model.to(device)
-    num_epochs = 1
+    num_epochs = 3
     start_epoch = 0
+    best_mAP = -1
+
+    if 'checkpoint.pt' in os.listdir(checkpoint_folder):
+        checkpoint = torch.load(checkpoint_path)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        start_epoch = checkpoint['epoch'] + 1
+        best_mAP = checkpoint['best_mAP']
 
     for epoch in range(start_epoch, num_epochs):
         model.train()
@@ -44,15 +54,22 @@ def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
                 predict = model(images)
                 metric.update(predict, targets)
                 pprint(metric.compute())
-                print(metric.compute()['map'].item())
-                writer.add_scalar('Validation mAP', metric.compute()['map'].item(), epoch * len(train_loader) + batch_idx)
+                mAP = metric.compute()['map'].item()
+                print(mAP)
+                writer.add_scalar('Validation mAP', mAP, epoch * len(train_loader) + batch_idx)
+
+                if mAP > best_mAP:
+                    best_mAP = mAP
+                    # Save the best model
+                    torch.save(model.state_dict(), best_model_path)
 
 
         # Save a checkpoint of the model and optimizer
         checkpoint = {
             'epoch': epoch,
             'model_state_dict': model.state_dict(),
-            'optimizer_state_dict': optimizer.state_dict()
+            'optimizer_state_dict': optimizer.state_dict(),
+            'best_mAP': best_mAP
         }
         torch.save(checkpoint, checkpoint_path)
         # Print the loss and accuracy for the epoch
