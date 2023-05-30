@@ -47,7 +47,7 @@ from models import get_object_detection_model
 from train import train
 from image_preparation import get_transform
 from output_filters import apply_nms
-from image_preparation import plot_img_bbox
+from image_preparation import plot_img_bbox, torch_to_pil
 
 def collate_fn(batch):
     return tuple(zip(*batch))

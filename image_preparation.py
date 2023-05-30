@@ -3,6 +3,7 @@ from albumentations.pytorch.transforms import ToTensorV2
 from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+from torchvision import transforms as torchtrans
 
 
 def resize_image(img_arr, bboxes, h, w):
