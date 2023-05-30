@@ -17,3 +17,5 @@ pip-selfcheck.json
 *.json
 *.pt
 *.pyc
+.runs
+*.0

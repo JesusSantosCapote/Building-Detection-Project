@@ -69,10 +69,7 @@ val_images_path = os.path.join(val_path, "images")
 # copy_raw_datasets(raw_train_path, train_images_path, train_annot_path)
 # copy_raw_datasets(raw_val_path, val_images_path, val_annot_path)
 
-# Label Encoder
-le = preprocessing.LabelEncoder()
-le.fit(['background', 'airport'])
-
+classes = ['background', 'airport']
 # use our dataset and defined transformations
 train_dataset = BuildingImageDataset(train_images_path, train_annot_path, 480, 480, transforms=get_transform(train=False))
 val_dataset = BuildingImageDataset(val_images_path, val_annot_path, 480, 480, transforms=get_transform(train=False))
@@ -111,6 +108,7 @@ lr_scheduler = torch.optim.lr_scheduler.StepLR(
   gamma=0.1
 )
 
+
 train(model, optimizer, train_loader, valid_loader, lr_scheduler)
 
 
@@ -131,5 +129,6 @@ with torch.no_grad():
 
 print('MODEL OUTPUT\n')
 nms_prediction = apply_nms(prediction, iou_thresh=0.01)
+print(nms_prediction)
 
-plot_img_bbox(torch_to_pil(img), nms_prediction)
+plot_img_bbox(torch_to_pil(img), nms_prediction, classes)

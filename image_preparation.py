@@ -25,7 +25,7 @@ def resize_image(img_arr, bboxes, h, w):
 
 
 # Function to visualize bounding boxes in the image
-def plot_img_bbox(img, target):
+def plot_img_bbox(img, target, classes):
   # plot the image and bboxes
   # Bounding boxes are defined as follows: x-min y-min width height
   if "scores" not in target.keys():
@@ -49,7 +49,7 @@ def plot_img_bbox(img, target):
       edgecolor = 'r',
       facecolor = 'none',
     )
-    a.text(x, y, f"{le.inverse_transform([label])}:{score}")
+    a.text(x, y, f"{classes[label]}:{score}")
     # Draw the bounding box on top of the image
     a.add_patch(rect)
   plt.show()
