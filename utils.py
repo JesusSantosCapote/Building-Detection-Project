@@ -19,6 +19,17 @@ def resize_image(img_arr, bboxes, h, w):
         [albumentations.Resize(height=h, width=w, always_apply=True)],
         bbox_params=albumentations.BboxParams(format='pascal_voc'))
 
+    for box in bboxes:
+      if box[0] > box[2]:
+        temp = box[0]
+        box[0] = box[2]
+        box[2] = temp
+
+      if box[1] > box[3]:
+        temp = box[1]
+        box[1] = box[3]
+        box[3] = temp
+
     transformed = transform(image=img_arr, bboxes=bboxes)
 
     return transformed
@@ -55,14 +66,46 @@ def plot_img_bbox(img, target, classes):
   plt.show()
 
 
-def copy_raw_datasets(actual_folder, img_destiny, annot_destiny):
+def move_raw_datasets(actual_folder, img_destiny, annot_destiny):
 
   for directory in os.listdir(actual_folder):
     source = os.path.join(actual_folder, directory)
-    if directory.endswith(".json"):
-      shutil.copy(source, annot_destiny)
-    else:
-      shutil.copy(source, img_destiny)
+
+    for file in os.listdir(source):
+      if file.endswith(".json"):
+        shutil.move(os.path.join(source, file), annot_destiny)
+        image_name = file.split('.')[0]
+        image_name += ".jpg"
+
+        try:
+          shutil.move(os.path.join(source, image_name), img_destiny)
+        except:
+          continue
+
+
+def delete_bad_data(images_dir, annot_dir):
+  data_to_delete = []
+  number_of_deleted = 0
+
+  for file in os.listdir(annot_dir):
+    with open(os.path.join(annot_dir, file)) as f:
+      json_dict = json.load(f)
+
+      for elem in json_dict["bounding_boxes"]:
+        x_min, y_min, x_max, y_max = elem["box"]
+        if abs(x_min - x_max) < 10e-8 or abs(y_min - y_max) < 10e-8:
+          annot2delete = os.path.join(annot_dir, file)
+          image_name = file.split('.')[0]
+          image_name += ".jpg"
+          image2delete = os.path.join(images_dir, image_name)
+          data_to_delete.append(annot2delete)
+          data_to_delete.append(image2delete)
+
+  for file in data_to_delete:
+    os.remove(file)
+    number_of_deleted += 1
+
+  return number_of_deleted
 
 
 # Send train=True for training transforms and False for val/test transforms

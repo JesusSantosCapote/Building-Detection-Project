@@ -2,7 +2,6 @@ import torch
 import os
 import cv2
 import json
-from image_preparation import resize_image
 import numpy as np
 
 # we create a Dataset class which has a __getitem__ function and a __len__ function
@@ -20,7 +19,7 @@ class BuildingImageDataset(torch.utils.data.Dataset):
     self.imgs = [image for image in sorted(os.listdir(self.images_dir)) if image[-4:]=='.jpg']
     
     # classes: 0 index is reserved for background
-    self.classes = ['background', 'airport']
+    self.classes = ['background', 'stadium']
 
   def __getitem__(self, idx):
     img_name = self.imgs[idx]
@@ -50,6 +49,16 @@ class BuildingImageDataset(torch.utils.data.Dataset):
         xmax = min(int(json_dict["img_width"]), int(float(box[2])))
         ymax = min(int(json_dict["img_height"]), int(float(box[3])))
 
+        if xmin >= xmax:
+          temp = xmin
+          xmin = xmax
+          xmax = temp
+
+        if ymin >= ymax:
+          temp = ymin
+          ymin = ymax 
+          ymax = temp
+
         image_info.append([xmin, ymin, xmax, ymax, label])
 
       f.close()
@@ -68,7 +77,6 @@ class BuildingImageDataset(torch.utils.data.Dataset):
     labels = []
     
     for elem in transformed_dict["bboxes"]:
-      print(elem)
       boxes.append([elem[0], elem[1], elem[2], elem[3]])
       labels.append(elem[4])
     

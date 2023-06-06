@@ -1,76 +1,71 @@
-import torch
-import torchvision
-from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-from torchvision.datasets import VOCDetection
-from torchvision.transforms import transforms
-from torch.utils.data import DataLoader
-from torchmetrics.detection.mean_ap import MeanAveragePrecision
-from pprint import pprint
 import os
+import torch
+from dataset import BuildingImageDataset
+from models import get_object_detection_model
+from train_methods import train
+from utils import get_transform
+from output_filters import apply_nms
+from utils import plot_img_bbox, torch_to_pil
 
-from torch.utils.tensorboard import SummaryWriter
+def collate_fn(batch):
+    return tuple(zip(*batch))
 
-"""Let the training begin!"""
+
 path = os.getcwd()
-checkpoint_folder = os.path.join(path, "checkpoint")
-checkpoint_path = os.path.join(path, "checkpoint", "checkpoint.pt ")
+train_path = os.path.join(path, "data", "train")
+val_path = os.path.join(path, "data", "val")
+
+raw_train_path = os.path.join(path, "data", "train_raw_dataset")
+raw_val_path = os.path.join(path, "data", "val_raw_dataset")
+
+train_annot_path = os.path.join(train_path,"annotations")
+train_images_path = os.path.join(train_path, "images")
+
+val_annot_path = os.path.join(val_path,"annotations")
+val_images_path = os.path.join(val_path, "images")
+
 best_model_path = os.path.join(path, "checkpoint", "best.pt ")
 
-writer = SummaryWriter()
-metric = MeanAveragePrecision()
+# copy_raw_datasets(raw_train_path, train_images_path, train_annot_path)
+# copy_raw_datasets(raw_val_path, val_images_path, val_annot_path)
 
-def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-    model.to(device)
-    num_epochs = 3
-    start_epoch = 0
-    best_mAP = -1
+classes = ['background', 'airport']
+# use our dataset and defined transformations
+train_dataset = BuildingImageDataset(train_images_path, train_annot_path, 480, 480, transforms=get_transform(train=False))
+val_dataset = BuildingImageDataset(val_images_path, val_annot_path, 480, 480, transforms=get_transform(train=False))
 
-    if 'checkpoint.pt' in os.listdir(checkpoint_folder):
-        checkpoint = torch.load(checkpoint_path)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        start_epoch = checkpoint['epoch'] + 1
-        best_mAP = checkpoint['best_mAP']
+# define training and validation data loaders
+train_loader = torch.utils.data.DataLoader(
+  train_dataset,
+  batch_size=10,
+  shuffle=True,
+  num_workers=0,
+  collate_fn=collate_fn,
+)
 
-    for epoch in range(start_epoch, num_epochs):
-        model.train()
-        for batch_idx, (images, targets) in enumerate(train_loader):
-            images = [image.to(device) for image in images]
-            targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
-            loss_dict = model(images, targets)
-            losses = sum(loss for loss in loss_dict.values())
-            writer.add_scalar('Training Loss', losses.item(), epoch * len(train_loader) + batch_idx)
-            optimizer.zero_grad()
-            losses.backward()
-            optimizer.step()
-        lr_scheduler.step()
+valid_loader = torch.utils.data.DataLoader(
+  val_dataset,
+  batch_size=10,
+  shuffle=False,
+  num_workers=0,
+  collate_fn=collate_fn,
+)
 
-        model.eval()
-        with torch.no_grad():
-            for batch_idx, (images, targets) in enumerate(valid_loader):
-                images = [image.to(device) for image in images]
-                targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
-                predict = model(images)
-                metric.update(predict, targets)
-                pprint(metric.compute())
-                mAP = metric.compute()['map'].item()
-                print(mAP)
-                writer.add_scalar('Validation mAP', mAP, epoch * len(train_loader) + batch_idx)
+num_classes = 2 # one class (class 0) is dedicated to the "background"
 
-                if mAP > best_mAP:
-                    best_mAP = mAP
-                    # Save the best model
-                    torch.save(model.state_dict(), best_model_path)
+model = get_object_detection_model(num_classes)
+
+# construct an optimizer
+params = [p for p in model.parameters() if p.requires_grad]
+optimizer = torch.optim.SGD(params, lr=0.005, momentum=0.9, weight_decay=0.0005)
+
+# and a learning rate scheduler which decreases the learning rate by
+# 10x every 3 epochs
+lr_scheduler = torch.optim.lr_scheduler.StepLR(
+  optimizer,
+  step_size=3,
+  gamma=0.1
+)
 
 
-        # Save a checkpoint of the model and optimizer
-        checkpoint = {
-            'epoch': epoch,
-            'model_state_dict': model.state_dict(),
-            'optimizer_state_dict': optimizer.state_dict(),
-            'best_mAP': best_mAP
-        }
-        torch.save(checkpoint, checkpoint_path)
-        # Print the loss and accuracy for the epoch
-        print(f'Epoch {epoch}/{num_epochs}, Loss: {losses:.4f}')
+train(model, optimizer, train_loader, valid_loader, lr_scheduler)
