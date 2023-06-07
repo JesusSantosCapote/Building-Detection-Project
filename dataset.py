@@ -3,6 +3,8 @@ import os
 import cv2
 import json
 import numpy as np
+import albumentations
+from albumentations.pytorch.transforms import ToTensorV2
 
 # we create a Dataset class which has a __getitem__ function and a __len__ function
 class BuildingImageDataset(torch.utils.data.Dataset):
@@ -107,6 +109,49 @@ class BuildingImageDataset(torch.utils.data.Dataset):
       target['boxes'] = torch.Tensor(sample['bboxes'])
         
     return img_res, target
+
+  def __len__(self):
+    return len(self.imgs)
+
+
+class TestImageDataset(torch.utils.data.Dataset):
+
+  def __init__(self, images_dir, width, height):
+    self.images_dir = images_dir
+    self.height = height
+    self.width = width
+    
+    # sorting the images for consistency
+    # To get images, the extension of the filename is checked to be jpg
+    self.imgs = [image for image in sorted(os.listdir(self.images_dir)) if image[-4:]=='.jpg']
+
+  
+  def __getitem__(self, idx):
+    img_name = self.imgs[idx]
+    image_path = os.path.join(self.images_dir, img_name)
+
+    # reading the images and converting them to correct size and color    
+    img = cv2.imread(image_path)
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB).astype(np.float32)
+
+    transform = albumentations.Compose(
+        [albumentations.Resize(height=self.height, width=self.width, always_apply=True)])
+
+    transformed_image = transform( image=img_rgb, width=224, height=224)['image']
+
+    # contains the image as array
+    img_res = np.asarray(transformed_image)
+
+    # diving by 255
+    img_res /= 255.0
+
+    to_tensor = albumentations.Compose(
+                  [ToTensorV2(p=1.0)])
+
+    img_res = to_tensor(image = img_res)['image']
+
+    return img_res
+
 
   def __len__(self):
     return len(self.imgs)

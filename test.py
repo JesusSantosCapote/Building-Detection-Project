@@ -1,15 +1,24 @@
 import torch
 from models import get_object_detection_model
 from settings import NUM_CLASSES
+from dataset import TestImageDataset
+import os
+from output_filters import apply_nms
+from utils import plot_img_bbox, torch_to_pil
 
 
-"""# Testing our Model
+path = os.getcwd()
+best_model_path = os.path.join(path, "checkpoint", "best.pt ")
+test_image_path = os.path.join(path, "data", "test")
 
-Now lets take an image from the test set and try to predict on it
-"""
+classes = ['background', 'stadium']
+
+test_dataset = TestImageDataset(test_image_path, 480, 480)
 
 # pick one image from the test set
-img, target = val_dataset[7]
+img = test_dataset[0]
+
+model = get_object_detection_model(NUM_CLASSES)
 
 model.load_state_dict(torch.load(best_model_path))
 

@@ -108,9 +108,8 @@ def delete_bad_data(images_dir, annot_dir):
   return number_of_deleted
 
 
-# Send train=True for training transforms and False for val/test transforms
-def get_transform(train):
-  if train:
+def get_transform(do_transform):
+  if do_transform:
     return albumentations.Compose(
       [
         albumentations.HorizontalFlip(0.5),

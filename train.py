@@ -29,10 +29,10 @@ best_model_path = os.path.join(path, "checkpoint", "best.pt ")
 # copy_raw_datasets(raw_train_path, train_images_path, train_annot_path)
 # copy_raw_datasets(raw_val_path, val_images_path, val_annot_path)
 
-classes = ['background', 'airport']
+classes = ['background', 'stadium']
 # use our dataset and defined transformations
-train_dataset = BuildingImageDataset(train_images_path, train_annot_path, 480, 480, transforms=get_transform(train=False))
-val_dataset = BuildingImageDataset(val_images_path, val_annot_path, 480, 480, transforms=get_transform(train=False))
+train_dataset = BuildingImageDataset(train_images_path, train_annot_path, 480, 480, transforms=get_transform(do_transform=False))
+val_dataset = BuildingImageDataset(val_images_path, val_annot_path, 480, 480, transforms=get_transform(do_transform=False))
 
 # define training and validation data loaders
 train_loader = torch.utils.data.DataLoader(

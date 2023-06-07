@@ -1,8 +1,46 @@
 
-\documentclass{article}
-\begin{document}
+\documentclass[article]{llncs}
+%
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
 
-\section{Functional Map of The World Dataset}
+
+\begin{document}
+%
+\title{Detecci\'on de Edificaciones con Machine Learning}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Jes\'us Santos Capote, Kenny Villalobos Morales, Jorge Soler Gonz\'alez, Abraham Gonz\'alez Rivero, 
+Rainel Fern\'andez Abreu, Eduardo Garc\'ia Maleta}
+%
+\institute{Facultad de Matemática y Computación, Universidad de La Habana, La Habana, Cuba }
+%
+\maketitle              % typeset the header of the contribution
+%
+
+\keywords{Detección de Objetos \and Clasificación de Im\'agenes \and Machine Learning \and Pytorch \and Keras \and Tensorflow \and Faster-RCNN}
+
+
+\section{Intoducci\'on}
+El uso de imágenes satelitales ha permitido avances significativos en la identificación y caracterización de diferentes 
+tipos de construcciones, lo cual puede ser de gran utilidad en diversas áreas como la planificación urbana, la gestión de 
+recursos naturales y la seguridad nacional, entre otras. Los autores proponen tres modelos, dos de clasificación de im\'agenes 
+y uno de detección de objetos con el fin de identificar en im\'agenes satelitales edificaciones con una topolog\'ia espec\'ifica.
+
+
+\section{Dataset}
+
+\subsection{Functional Map of the World Dataset}
 
 El dataset usado para el entrenamiento de los modelos fue el llamado Functional Map of the World Dataset. 
 El conjunto de datos "Functional Map of the World" (FMOW) es un conjunto de datos público de imágenes satelitales 
@@ -20,13 +58,16 @@ taxonomía FMoW se centra en las funciones que cumplen los objetos en lugar de e
 una clasificación más precisa y consistente de los objetos en diferentes contextos y entornos. Las clases de objetos 
 incluyen cosas como edificios, vehículos, cuerpos de agua, cultivos y áreas verdes.
 
-\section{Modelo Faster R-CNN}
+Actualmente se encuentra libre para su descarga en Amazon S3.
+
+\section{Modelos Utilizados}
+
+\subsection{Faster R-CNN}
 Faster R-CNN es un algoritmo popular de detección de objetos que fue introducido por Shaoqing Ren, 
 Kaiming He, Ross Girshick y Jian Sun en 2015. Es una extensión del modelo R-CNN original (Convolutional Neural 
 Network basado en regiones), que fue introducido por Ross Girshick et al. en 2014.
 
-La detección de objetos es una tarea de visión por computadora que implica identificar la presencia y ubicación 
-de objetos en una imagen. En Faster R-CNN, esto se logra primero generando un conjunto de propuestas de región 
+La detección de objetos con Faster-RCNN se logra primero generando un conjunto de propuestas de región 
 (es decir, ubicaciones de objetos candidatos) utilizando una Red de Proposición de Regiones (RPN), y luego 
 clasificando estas propuestas utilizando una red de clasificación.
 
@@ -41,11 +82,49 @@ La red de clasificación toma cada propuesta generada por la RPN y realiza la cl
 del cuadro delimitador. La red consta de una serie de capas completamente conectadas que toman las características de 
 cada propuesta como entrada y producen una etiqueta de clase y coordenadas del cuadro delimitador.
 
-Una de las principales ventajas de Faster R-CNN sobre su predecesor, R-CNN, es su velocidad. R-CNN era un algoritmo 
-lento, ya que implicaba ejecutar un modelo de aprendizaje profundo separado para cada propuesta de región. En contraste, 
-Faster R-CNN utiliza un solo mapa de características convolucionales compartido para todas las propuestas, lo que le 
-permite procesar imágenes mucho más rápidamente.
+La implementaci\'on de este modelo se realiz\'o con la utilizaci\'on de la biblioteca Pytorch de python y se realiz\'o el
+entranmiento en Google Colab con la clase Stadium del dataset. Es decir el modelo se entren\'o para detectar estadios en 
+im\'agenes satelitales. De igual forma se puede entrenar para detectar otro tipo de edificaci\'on.
 
-Otra ventaja de Faster R-CNN es su precisión. Se ha demostrado que logra un rendimiento de vanguardia en una serie de 
-benchmarks de detección de objetos, incluidos los conjuntos de datos PASCAL VOC y MS COCO.
+\subsection{InceptionV3 + DNN}
+
+El modelo de machine learning que se presenta utiliza la arquitectura InceptionV3 de redes neuronales convolucionales 
+(CNN) para la extracción de características, seguida de una red neuronal densa (DNN) para la clasificación.
+
+El modelo InceptionV3 es una red neuronal convolucional profunda que ha demostrado ser altamente eficaz en la 
+clasificación de imágenes. Fue desarrollado por Google y se encuentra disponible en la librería de aprendizaje profundo 
+Keras, lo que lo hace accesible para su uso en proyectos de Machine Learning.
+
+El modelo InceptionV3 se caracteriza por su arquitectura en forma de "inception module", que se basa en la idea de 
+combinar diferentes tamaños de filtros dentro de la misma capa convolucional. Esta técnica permite reducir la cantidad 
+de parámetros que debe aprender el modelo, lo que a su vez reduce el riesgo de sobreajuste y mejora su capacidad de 
+generalización.
+
+Además, InceptionV3 utiliza técnicas como la regularización L2 y el dropout para prevenir el sobreajuste, y utiliza la 
+función de activación ReLU para acelerar el entrenamiento de la red. El modelo también utiliza capas de agrupamiento 
+máximo (max pooling) para reducir el tamaño de las características de la imagen y facilitar su procesamiento.
+
+La red neuronal densa que se agrega a la arquitectura InceptionV3 se utiliza para la clasificación de las características 
+extraídas por la red convolucional. La red consta de dos capas densas completamente conectadas con 128 y 2 neuronas respectivamente. 
+La capa final de la red densa utiliza la función de activación softmax, que normaliza 
+las salidas de la capa anterior para que representen probabilidades de clase para la clasificación multiclase. La función 
+de activación ReLU se utiliza en la capa anterior para introducir no linealidad en la red y mejorar su capacidad de 
+aprendizaje.
+
+El modelo se entren\'o para la clasificación de im\'agenes con aeropuertos y zool\'ogicos.
+
+
+\subsection{DenseNet + ResNet}
+
+
+\begin{thebibliography}{8}
+    \bibitem{citekey}
+        K. He et al., “Deep residual learning for image recognition,” arXiv 1512.03385, Dec 2015.
+  
+    \bibitem{citekey}
+        G. Huang, “Dense connected convolutional neural networks,” IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR), 2017.
+  
+  
+  \end{thebibliography}
+
 \end{document}
