@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1686101491 "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" "doc.pdf" "doc" 1686101492
+["pdflatex"] 1686106599 "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" "doc.pdf" "doc" 1686106600
   "C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1682304497 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1651616074 11548 1d6694388b76947d172aeae28d8bb6c9 ""
   "C:/Users/Chuchi/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1648773705 10247433 475082ab8100db1eaba821d7cc886e11 ""
@@ -32,9 +32,9 @@
   "C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/tex/latex/llncs/llncs.cls" 1662366460 42312 5c930e3a884976fbd3796e3ab18cc1af ""
   "C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/tex/latex/oberdiek/aliascnt.sty" 1637064316 2652 813491e2bc95c1dafbb39cd7c54b380b ""
   "C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/tex/latex/tools/multicol.sty" 1636713860 32262 2bb622a0aa56c4a7a5cbdfe9d122c15a ""
-  "doc.aux" 1686101492 1365 25d6dd3fca611f2b594197e41127939c "pdflatex"
-  "doc.tex" 1686101489 7759 0b2588a5d1b47831a3e9fc11cd5a0f9a ""
-  "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" 1686101489 7759 0b2588a5d1b47831a3e9fc11cd5a0f9a ""
+  "doc.aux" 1686106600 1365 af0e556b8dc5037706b52bf0a3e4a103 "pdflatex"
+  "doc.tex" 1686106598 9937 020e24f55eb1b6da7bbd326f8ddfe021 ""
+  "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" 1686106598 9937 020e24f55eb1b6da7bbd326f8ddfe021 ""
   (generated)
   "doc.aux"
   "doc.log"

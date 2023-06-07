@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  6 JUN 2023 21:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  6 JUN 2023 22:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -251,7 +251,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 28.
  [1
 
-{C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] (doc.aux
+{C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] (doc.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -260,17 +260,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3114 strings out of 478582
- 50686 string characters out of 2843872
+ 3115 strings out of 478582
+ 50694 string characters out of 2843872
  369833 words of memory out of 3000000
- 21311 multiletter control sequences out of 15000+600000
+ 21312 multiletter control sequences out of 15000+600000
  471411 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,5n,62p,308b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on doc.pdf (3 pages, 82916 bytes).
+Output written on doc.pdf (4 pages, 84966 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

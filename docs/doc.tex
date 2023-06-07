@@ -116,6 +116,29 @@ El modelo se entren\'o para la clasificación de im\'agenes con aeropuertos y zo
 
 \subsection{DenseNet + ResNet}
 
+El modelo consciste en las redes neuronales convolucionales DenseNet121 y ResNet152, ambos pre-entrenados en el conjunto 
+de datos de ImageNet. Las salidas de los modelos se concatenan y se alimentan a una capa completamente conectada y una 
+capa de dropout para reducir el sobreajuste. Finalmente, se agrega una capa de salida con una función de activación 
+softmax para realizar la clasificación en el número de clases especificado.  
+
+DenseNet121 es una arquitectura de red neuronal convolucional profunda que se caracteriza por su alta eficiencia en el 
+uso de los parámetros. En lugar de concatenar las salidas de las capas anteriores a través de capas de conexión, como en 
+las redes neuronales convolucionales tradicionales, DenseNet121 conecta todas las capas de la red en una estructura 
+densamente conectada. Esto significa que cada capa recibe como entrada las salidas de todas las capas anteriores, lo que 
+permite que la información fluya de manera más eficiente a través de la red y evita el problema de la desaparición del 
+gradiente. DenseNet121 se utiliza comúnmente en aplicaciones de clasificación de imágenes y ha demostrado un alto 
+rendimiento en conjuntos de datos como ImageNet.
+
+ResNet, por otro lado, es una arquitectura de red neuronal convolucional profunda que se caracteriza por su capacidad 
+para resolver el problema de la degradación de la precisión en redes neuronales muy profundas. La degradación de la 
+precisión se refiere al hecho de que a medida que se agregan más capas a una red neuronal, la precisión de la red 
+comienza a disminuir en lugar de mejorar. Para resolver este problema, ResNet introduce el concepto de "conexiones de 
+salto" (skip connections), que permiten que la información fluya directamente desde las capas anteriores a las capas 
+posteriores, evitando que la información se pierda a medida que se profundiza en la red. ResNet se utiliza comúnmente en 
+tareas de clasificación de imágenes y ha demostrado un alto rendimiento en conjuntos de datos como ImageNet.
+
+EL modelo fue entrenado para identificar las clases: airport terminal, burial site, park, stadium, zoo. 
+
 
 \begin{thebibliography}{8}
     \bibitem{citekey}
