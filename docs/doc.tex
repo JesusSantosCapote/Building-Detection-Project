@@ -256,6 +256,14 @@ incluyen cosas como edificios, vehículos, cuerpos de agua, cultivos y áreas ve
 
 Actualmente se encuentra libre para su descarga en Amazon S3.
 
+\subsection{Cuba Stadia}
+
+Este es un dataset creado por el equipo para el entrenamiento y pruebas de los modelos implementdos. Consta de 38 
+im\'agenes de estadios de beisbol de nuestro territorio nacional con sus correspondientes etiquetas. Cada etiqueta 
+contiene el Bounding Box del estadio as\'i como las dimensiones de la im\'agen. Se construy\'o tomando screenshots 
+de Google Maps Satelital, sin etiquetas, luego he recortado las imagenes en forma cuadrada con 720 pixeles de ancho. 
+Las anotaciones fueron realizadas con una aplicaci\'on de nuestra autor\'ia.
+
 \section{Modelos Utilizados}
 
 \subsection{Faster R-CNN}
@@ -310,28 +318,35 @@ aprendizaje.
 El modelo se entren\'o para la clasificación de im\'agenes con aeropuertos y zool\'ogicos.
 
 
-\subsection{DenseNet + ResNet}
+\subsection{DenseNet + ResNet + InceptionV3 + Xception}
 
-El modelo consciste en las redes neuronales convolucionales DenseNet121 y ResNet152, ambos pre-entrenados en el conjunto 
-de datos de ImageNet. Las salidas de los modelos se concatenan y se alimentan a una capa completamente conectada y una 
-capa de dropout para reducir el sobreajuste. Finalmente, se agrega una capa de salida con una función de activación 
-softmax para realizar la clasificación en el número de clases especificado.  
+Este es un modelo de aprendizaje profundo que utiliza cuatro arquitecturas de redes neuronales pre-entrenadas 
+(DenseNet121, ResNet152, InceptionV3 y Xception) para extraer características de una imagen de entrada de tamaño 
+224x224x3 y luego combinar estas características en una capa de fusión. La salida de la capa de fusión se alimenta a 
+través de una capa densa completamente conectada con 1024 unidades y una función de activación ReLU, seguida de una capa 
+de dropout para reducir el sobreajuste. Finalmente, hay una capa densa con una función de activación softmax que predice 
+la probabilidad de pertenecer a cada una de las clases de destino.
 
-DenseNet121 es una arquitectura de red neuronal convolucional profunda que se caracteriza por su alta eficiencia en el 
-uso de los parámetros. En lugar de concatenar las salidas de las capas anteriores a través de capas de conexión, como en 
-las redes neuronales convolucionales tradicionales, DenseNet121 conecta todas las capas de la red en una estructura 
-densamente conectada. Esto significa que cada capa recibe como entrada las salidas de todas las capas anteriores, lo que 
-permite que la información fluya de manera más eficiente a través de la red y evita el problema de la desaparición del 
-gradiente. DenseNet121 se utiliza comúnmente en aplicaciones de clasificación de imágenes y ha demostrado un alto 
-rendimiento en conjuntos de datos como ImageNet.
+DenseNet121: DenseNet es una arquitectura de red neuronal convolucional profunda que se caracteriza por tener conexiones 
+densas entre las capas. DenseNet121 es una versión específica de esta arquitectura que tiene 121 capas y se ha entrenado 
+en un conjunto de datos masivo llamado ImageNet. Esta arquitectura es conocida por su eficiencia y precisión en la 
+clasificación de imágenes.
 
-ResNet, por otro lado, es una arquitectura de red neuronal convolucional profunda que se caracteriza por su capacidad 
-para resolver el problema de la degradación de la precisión en redes neuronales muy profundas. La degradación de la 
-precisión se refiere al hecho de que a medida que se agregan más capas a una red neuronal, la precisión de la red 
-comienza a disminuir en lugar de mejorar. Para resolver este problema, ResNet introduce el concepto de "conexiones de 
-salto" (skip connections), que permiten que la información fluya directamente desde las capas anteriores a las capas 
-posteriores, evitando que la información se pierda a medida que se profundiza en la red. ResNet se utiliza comúnmente en 
-tareas de clasificación de imágenes y ha demostrado un alto rendimiento en conjuntos de datos como ImageNet.
+ResNet152: ResNet es otra arquitectura de red neuronal convolucional profunda que se caracteriza por tener conexiones 
+residuales entre las capas. Estas conexiones permiten que la información fluya directamente a través de la red, lo que 
+facilita el entrenamiento de redes más profundas. ResNet152 es una versión específica de esta arquitectura que tiene 152 
+capas y también se ha entrenado en el conjunto de datos ImageNet. Esta arquitectura ha demostrado ser muy eficaz para 
+tareas de clasificación de imágenes.
+
+InceptionV3: Inception es una arquitectura de red neuronal convolucional que se caracteriza por tener múltiples caminos 
+de procesamiento de información dentro de la red. InceptionV3 es una versión específica de esta arquitectura que se ha 
+entrenado en el conjunto de datos ImageNet. Esta arquitectura es conocida por su eficiencia y precisión en la 
+clasificación de imágenes.
+
+Xception: Xception es una arquitectura de red neuronal convolucional profunda que se caracteriza por tener convoluciones 
+separables en profundidad. Las convoluciones separables en profundidad son una variante de las convoluciones regulares 
+que separan el procesamiento espacial y de características en dos etapas diferentes. Xception se ha entrenado en el 
+conjunto de datos ImageNet y ha demostrado ser muy eficaz para tareas de clasificación de imágenes.
 
 EL modelo fue entrenado para identificar las clases: airport terminal, burial site, park, stadium, zoo.
 
