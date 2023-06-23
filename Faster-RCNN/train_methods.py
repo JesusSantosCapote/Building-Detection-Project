@@ -23,6 +23,7 @@ metric = MeanAveragePrecision()
 
 def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    print(device)
     model.to(device)
     num_epochs = 15
     start_epoch = 0

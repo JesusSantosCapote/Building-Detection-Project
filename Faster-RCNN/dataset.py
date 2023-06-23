@@ -5,6 +5,7 @@ import json
 import numpy as np
 import albumentations
 from albumentations.pytorch.transforms import ToTensorV2
+from utils import resize_image
 
 # we create a Dataset class which has a __getitem__ function and a __len__ function
 class BuildingImageDataset(torch.utils.data.Dataset):

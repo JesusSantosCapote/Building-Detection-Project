@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  6 JUN 2023 22:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  22 JUN 2023 23:26
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -207,6 +207,24 @@ LaTeX Info: Redefining \% on input line 8.
 
 LaTeX Warning: Label `citekey' multiply defined.
 
+
+LaTeX Warning: Label `citekey' multiply defined.
+
+
+LaTeX Warning: Label `citekey' multiply defined.
+
+
+LaTeX Warning: Label `citekey' multiply defined.
+
+
+LaTeX Warning: Label `citekey' multiply defined.
+
+
+LaTeX Warning: Label `citekey' multiply defined.
+
+
+LaTeX Warning: Label `citekey' multiply defined.
+
 )
 \openout1 = `doc.aux'.
 
@@ -251,7 +269,60 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 28.
  [1
 
-{C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] (doc.aux
+{C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5] [6] [7] [8]
+<estadio_guillermon_moncada.jpg, id=32, 559.50967pt x 559.50967pt>
+File: estadio_guillermon_moncada.jpg Graphic file (type jpg)
+<use estadio_guillermon_moncada.jpg>
+Package pdftex.def Info: estadio_guillermon_moncada.jpg  used on input line 376.
+(pdftex.def)             Requested size: 173.56177pt x 173.55719pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Figure_1.png, id=33, 361.35pt x 361.35pt>
+File: Figure_1.png Graphic file (type png)
+<use Figure_1.png>
+Package pdftex.def Info: Figure_1.png  used on input line 383.
+(pdftex.def)             Requested size: 173.56177pt x 173.56181pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Figure_2.png, id=35, 462.528pt x 346.896pt>
+File: Figure_2.png Graphic file (type png)
+<use Figure_2.png>
+Package pdftex.def Info: Figure_2.png  used on input line 390.
+(pdftex.def)             Requested size: 173.56177pt x 130.17036pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<canny.png, id=36, 536.60475pt x 537.207pt>
+File: canny.png Graphic file (type png)
+<use canny.png>
+Package pdftex.def Info: canny.png  used on input line 397.
+(pdftex.def)             Requested size: 173.56177pt x 173.75409pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 410.
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Underfull \hbox (badness 2150) in paragraph at lines 410--411
+\OT1/cmr/m/n/9 ro Su-gi-mo-to, Hi-roshi Ishi-ka-wa, y Ryo-su-ke Na-ka-mu-ra. []Detection by clas-
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 410--411
+\OT1/cmr/m/n/9 si-fi-ca-tion of buil-dings in mul-tis-pec-tral sa-te-lli-te ima-gery[]. En 2016 23rd
+ []
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 410--411
+\OT1/cmr/m/n/9 In-ter-na-tio-nal Con-fe-ren-ce on Pat-tern Re-cog-ni-tion (ICPR), 3344-49, 2016.
+ []
+
+[10 <./estadio_guillermon_moncada.jpg>] [11 <./Figure_1.png> <./Figure_2.png>] [12 <./canny.png>] (doc.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -260,17 +331,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3115 strings out of 478582
- 50694 string characters out of 2843872
- 369833 words of memory out of 3000000
- 21312 multiletter control sequences out of 15000+600000
- 471411 words of font info for 35 fonts, out of 8000000 for 9000
+ 3170 strings out of 478582
+ 51807 string characters out of 2843872
+ 370871 words of memory out of 3000000
+ 21355 multiletter control sequences out of 15000+600000
+ 472162 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,5n,62p,308b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on doc.pdf (4 pages, 84966 bytes).
+ 55i,6n,62p,547b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy9.pfb>
+Output written on doc.pdf (12 pages, 964178 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
+ 89 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

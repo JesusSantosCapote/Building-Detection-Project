@@ -8,7 +8,7 @@ from utils import plot_img_bbox, torch_to_pil
 
 
 path = os.getcwd()
-best_model_path = os.path.join(path, "checkpoint", "best.pt ")
+best_model_path = os.path.join(path, "checkpoint", "best2.pt ")
 test_image_path = os.path.join(path, "data", "test")
 
 classes = ['background', 'stadium']
@@ -16,11 +16,16 @@ classes = ['background', 'stadium']
 test_dataset = TestImageDataset(test_image_path, 480, 480)
 
 # pick one image from the test set
-img = test_dataset[0]
+img = test_dataset[1]
 
 model = get_object_detection_model(NUM_CLASSES)
 
-model.load_state_dict(torch.load(best_model_path))
+checkpoint = torch.load(best_model_path, map_location=torch.device('cpu'))
+
+try:
+  model.load_state_dict(checkpoint['model_state_dict'])
+except:
+  model.load_state_dict(torch.load(best_model_path, map_location=torch.device('cpu')))
 
 # put the model in evaluation mode
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')

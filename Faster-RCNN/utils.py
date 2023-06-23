@@ -4,6 +4,9 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from torchvision import transforms as torchtrans
+import os
+import shutil
+import json
 
 
 def resize_image(img_arr, bboxes, h, w):
