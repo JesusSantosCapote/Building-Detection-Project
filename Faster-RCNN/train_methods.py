@@ -12,8 +12,7 @@ import time
 from torch.utils.tensorboard import SummaryWriter
 
 """Let the training begin!"""
-
-checkpoint_folder = os.path.join(os.getcwd(), 'checkpoint')
+checkpoint_folder = "/content/drive/MyDrive/model_checkpoint"
 checkpoint_path = os.path.join(checkpoint_folder, "checkpoint.pt ")
 best_model_path = os.path.join(checkpoint_folder, "best.pt ")
 
@@ -23,9 +22,8 @@ metric = MeanAveragePrecision()
 
 def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-    print(device)
     model.to(device)
-    num_epochs = 15
+    num_epochs = 20
     start_epoch = 0
     best_mAP = -1
 
