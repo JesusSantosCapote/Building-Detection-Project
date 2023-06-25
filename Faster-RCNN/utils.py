@@ -131,3 +131,34 @@ def get_transform(do_transform):
 # function to convert a torchtensor back to PIL image
 def torch_to_pil(img):
   return torchtrans.ToPILImage()(img).convert('RGB')
+
+
+def calculate_iou(bbox_pred, bbox_gt):
+    """
+    Calcula la métrica Intersection over Union (IoU) entre dos bounding boxes.
+    
+    Args:
+    bbox_pred: Lista con los valores (x1, y1, x2, y2) del bounding box predicho.
+    bbox_gt: Lista con los valores (x1, y1, x2, y2) del bounding box de la verdad fundamental.
+    
+    Returns:
+    El valor de la métrica IoU como un flotante.
+    """
+    # Obtenemos las coordenadas de la intersección
+    x1 = max(bbox_pred[0], bbox_gt[0])
+    y1 = max(bbox_pred[1], bbox_gt[1])
+    x2 = min(bbox_pred[2], bbox_gt[2])
+    y2 = min(bbox_pred[3], bbox_gt[3])
+    
+    # Calculamos el área de la intersección
+    intersection_area = max(0, x2 - x1 + 1) * max(0, y2 - y1 + 1)
+    
+    # Calculamos el área de la unión
+    bbox_pred_area = (bbox_pred[2] - bbox_pred[0] + 1) * (bbox_pred[3] - bbox_pred[1] + 1)
+    bbox_gt_area = (bbox_gt[2] - bbox_gt[0] + 1) * (bbox_gt[3] - bbox_gt[1] + 1)
+    union_area = bbox_pred_area + bbox_gt_area - intersection_area
+    
+    # Calculamos el IoU
+    iou = intersection_area / union_area
+    
+    return iou

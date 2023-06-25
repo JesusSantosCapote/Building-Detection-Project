@@ -4,7 +4,6 @@ from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.datasets import VOCDetection
 from torchvision.transforms import transforms
 from torch.utils.data import DataLoader
-from torchmetrics.detection.mean_ap import MeanAveragePrecision
 from pprint import pprint
 import os
 import time
@@ -17,7 +16,6 @@ checkpoint_path = os.path.join(checkpoint_folder, "checkpoint.pt ")
 best_model_path = os.path.join(checkpoint_folder, "best.pt ")
 
 
-writer = SummaryWriter()
 metric = MeanAveragePrecision()
 
 def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
@@ -38,8 +36,6 @@ def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
     for epoch in range(start_epoch, num_epochs):
         running_loss = 0.0
         train_total_of_samples = 0
-        val_total_of_samples = 0
-        mAP_sum = 0.0
 
         print(f"........................Starting Epoch: {epoch}...........................")
         model.train()
@@ -68,26 +64,27 @@ def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
         print('...............Validation.................')
         model.eval()
         with torch.no_grad():
+            all_predictions = []
+            all_targets = []
             for batch_idx, (images, targets) in enumerate(valid_loader):
                 images = [image.to(device) for image in images]
                 targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
                 predict = model(images)
-                metric.update(predict, targets)
-                pprint(metric.compute())
-                mAP = metric.compute()['map'].item()
-                mAP_sum += mAP
-                val_total_of_samples += len(targets)
-                writer.add_scalar('Validation mAP', mAP, epoch * len(valid_loader) + batch_idx)
+                for pred in predict:
+                    all_predictions.append(pred)
+                for targ in targets:
+                    all_targets.append(targ)
 
-                if batch_idx % 10 == 4:
-                  elapsed_time = time.time() - start_time
-                  avg_mAP = mAP_sum / val_total_of_samples
-                  print(f'Batch[{batch_idx+1}/{len(valid_loader)}], Avg. mAP: {avg_mAP:.4f}, Time: {elapsed_time:.2f}s')
 
-                if mAP > best_mAP:
-                    best_mAP = mAP
-                    # Save the best model
-                    torch.save(model.state_dict(), best_model_path)
+            metric.update(all_predictions, all_targets)
+            print('..............Mean Average Presition Metric...........')
+            pprint(metric.compute())
+            mAP = metric.compute()['map'].item()
+
+            if mAP > best_mAP:
+                best_mAP = mAP
+                # Save the best model
+                torch.save(model.state_dict(), best_model_path)
 
 
         # Save a checkpoint of the model and optimizer
@@ -100,4 +97,4 @@ def train(model, optimizer, train_loader, valid_loader, lr_scheduler):
         torch.save(checkpoint, checkpoint_path)
         print("..............Checkpoint Saved...............")
         # Print the loss and accuracy for the epoch
-        print(f'Ending Epoch {epoch}/{num_epochs}, Epoch Loss: {running_loss/len(train_loader.dataset):.4f}, Epoch mAP: {mAP_sum/ len(valid_loader.dataset)}')
+        print(f'Ending Epoch {epoch}/{num_epochs}, Epoch Loss: {running_loss/len(train_loader.dataset):.4f}, Epoch mAP: {mAP}')
