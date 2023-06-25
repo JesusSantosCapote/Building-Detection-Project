@@ -38,200 +38,50 @@ recursos naturales y la seguridad nacional, entre otras. Los autores proponen cu
 uno de detección de objetos y uno segmentaci\'on con el fin de identificar en im\'agenes satelitales edificaciones con una topolog\'ia espec\'ifica.
 
 \section{Estado del Arte}
+Actualmente para resolver la problemática se utilizan técnicas de aprendizaje profundo, específicamente 
+redes neuronales convolucionales, para la detección y clasificación de edificios e instalaciones en imágenes de 
+teledetección y satélite. Estas redes neuronales convolucionales permiten extraer características relevantes de las imágenes 
+y clasificarlas en diferentes categorías.
 
-\subsection{Aprendizaje no Supervisado}
+Algunos artículos utilizan técnicas de reducción de dimensionalidad, como Análisis de Componentes Principales 
+(PCA), para extraer características de las imágenes y reducir la complejidad de las mismas. PCA selecciona las 
+características más importantes de la imagen y las utiliza para entrenar el modelo de aprendizaje profundo, lo que 
+acelera el proceso de entrenamiento y mejora la precisión.
 
-El problema de detección y clasificación de imágenes satelitales puede abordarse mediante el uso de técnicas de 
-aprendizaje no supervisado. El aprendizaje no supervisado implica el entrenamiento de un modelo sin la necesidad de 
-etiquetas de datos previas. En lugar de eso, el modelo busca patrones y estructuras en los datos sin una guía explícita.
+Otra técnica utilizada es la transferencia de aprendizaje para mejorar el rendimiento de las redes neuronales. Esta 
+técnica implica reutilizar una red previamente entrenada en una tarea relacionada para una nueva tarea. 
+Al utilizar el conocimiento previo adquirido en la tarea anterior, el modelo puede aprender más rápido y mejorar 
+su precisión.
 
-A continuación, se describen algunas técnicas de aprendizaje no supervisado que se pueden utilizar para abordar el 
-problema de detección y clasificación de imágenes satelitales:
+Otros utilizan técnicas de filtrado guiado para mejorar la calidad de la solución. Esta técnica utiliza una 
+imagen guía de alta calidad para filtrar una imagen de baja calidad y mejorar la resolución y la claridad de la imagen.
 
-\subsubsection{Clustering:} Esta técnica implica agrupar los datos en grupos o clusters, donde cada cluster contiene datos similares. 
-En el contexto de las imágenes satelitales, se pueden agrupar los píxeles en clusters en función de su color, textura o 
-características espectrales. Los clusters resultantes pueden usarse para identificar regiones de interés en la imagen.
+La optimización estructurada también se emplea en algunos artículos para mejorar la precisión de la segmentación de 
+edificios. Esta técnica utiliza restricciones estructurales para mejorar la coherencia y la continuidad de los 
+objetos segmentados, lo que puede mejorar la precisión y la calidad de la solución.
 
-Los resultados de aplicar clustering a la clasificación y detección de imágenes satelitales pueden ser prometedores. 
-En general, el clustering puede ayudar a identificar regiones de interés en la imagen satelital y reducir la complejidad 
-de los datos. Sin embargo, es importante tener en cuenta que la calidad de los resultados depende de la calidad de los 
-datos y la elección del algoritmo de clustering. Además, el clustering no proporciona información sobre las 
-características específicas de los objetos en la imagen, por lo que puede ser necesario combinar el clustering con otras 
-técnicas de procesamiento de imágenes para obtener una clasificación y detección más precisa.
+Otro enfoque utilizado es la combinación de varias de estas técnicas. Algunos autores utilizan algoritmos de clustering 
+para el procesamiento de las imágenes y encontrar patrones en estas, los algoritmos más usados son el K-Means y Mean Shift. Otras de las más combinadas 
+son la reducción de dimensiones con PCA y redes neuronales convolucionales.
 
-\subsubsection{Autoencoder:} Un autoencoder es una red neuronal que se entrena para reconstruir una entrada a través de 
-una capa oculta. En el contexto de las imágenes satelitales, se puede utilizar un autoencoder para extraer 
-características latentes de la imagen. Las características latentes se pueden utilizar para identificar patrones y 
-estructuras en la imagen que pueden ayudar en la detección y clasificación.
+Ross Girshick en su artículo "Fast R-CNN" hace una propuesta de una nueva técnica \cite{FRCNN}. Fast R-CNN utiliza una red neuronal 
+convolucional para extraer características de la imagen y una capa de regresión para localizar objetos en la imagen. 
+A diferencia de "R-CNN", "Fast R-CNN" utiliza una sola red convolucional para extraer características de la imagen y 
+detectar objetos, lo que mejora la eficiencia computacional y la velocidad de procesamiento. Su eficiencia computacional y su alta precisión en la detección de objetos 
+lo hacen una técnica atractiva, por lo que nuestro modelo principal se basa en esta. 
 
-\subsubsection{Análisis de componentes independientes (ICA):}Esta técnica implica descomponer una señal en sus 
-componentes independientes. En el contexto de las imágenes satelitales, se puede utilizar el ICA para separar las 
-fuentes de la señal, como la vegetación, el agua y la tierra. Los componentes resultantes se pueden utilizar para 
-identificar regiones de interés en la imagen.
+En el artículo "Satellite Image Classification with Deep Learning" \cite{satelite}, se ve un enfoque donde primeramente se 
+preprocesan las imágenes para posteriormente brindarselas a una CNN, alargando los bordes de las cajas donde se encuentran los objetos en proporción con el tamaño de 
+la imagen, este paso es necesario porque provee de un contexto de píxeles alrededor del objeto que son de interés para la red 
+neuronal. Además el modelo CNN que utilizan trae consigo 4 arquitecturas (DenseNet, ResNet, Inception, Xception). 
+Dado que el enfoque de este artículo tiene una alta precisión en la problemática que se trata y está explicado con bastante claridad 
+se decidió usarlo en uno de los modelos implementados.
 
-\subsubsection{Análisis de componentes principales (PCA) aplicado a imágenes:} Esta técnica se utiliza para reducir la dimensión de 
-las imágenes satelitales, lo que puede hacer que los algoritmos de clasificación sean más eficientes. PCA se utiliza para 
-extraer las características más relevantes de las imágenes, lo que permite representarlas en un espacio de menor 
-dimensionalidad. El objetivo de PCA es encontrar una transformación lineal que permita representar los datos originales 
-en un nuevo espacio de menor dimensión. Esta transformación se realiza de tal manera que la primera componente principal 
-capture la mayor varianza posible de los datos, la segunda componente principal capture la mayor varianza posible que 
-queda después de haber eliminado la primera componente, y así sucesivamente. Las componentes principales se calculan de 
-tal manera que sean ortogonales entre sí.
-
-En el contexto de la clasificación de imágenes satelitales, se pueden utilizar las bandas de las imágenes como 
-características y aplicar el algoritmo de clustering K-Means para agrupar las imágenes en diferentes categorías de 
-cobertura terrestre.
-
-Una variante del algoritmo de K-Means, llamada K-Means espectral, utiliza una representación de grafos de los datos para 
-llevar a cabo el clustering. En esta variante, los píxeles de las imágenes se representan como nodos de un grafo y se 
-calcula una matriz de afinidad entre ellos. Luego, se aplica el algoritmo de clustering K-Means en la matriz de afinidad 
-para agrupar los píxeles en diferentes categorías de cobertura terrestre.
-
-Otra técnica es la segmentación de imágenes, que implica dividir las imágenes en regiones homogéneas basadas en la 
-similaridad de los píxeles. La segmentación se puede realizar utilizando técnicas como la segmentación por umbral, la 
-segmentación basada en regiones y la segmentación basada en contornos. Luego, se pueden utilizar técnicas de clustering 
-para agrupar las regiones segmentadas en diferentes categorías de cobertura terrestre.
-
-\subsection{Artículos relacionados:} 
-
-- Unsupervised Deep Feature Extraction
-  for Remote Sensing Image Classification
-
-  Presentan un enfoque para la extracción de características en imágenes de teledetección utilizando redes neuronales 
-  convolucionales (CNN) no supervisadas.
-
-  En lugar de utilizar etiquetas de clase para entrenar la CNN, el enfoque propuesto utiliza un algoritmo de clustering 
-  no supervisado para dividir las imágenes en diferentes grupos, y luego utiliza la CNN para extraer características de 
-  cada grupo de manera independiente. Estas características se utilizan posteriormente para clasificar las imágenes en 
-  diferentes categorías.
-
-  Los resultados experimentales demuestran que el enfoque propuesto puede mejorar significativamente la precisión de la 
-  clasificación en comparación con otros métodos existentes. En particular, los autores compararon su enfoque con otros 
-  tres métodos de clasificación de imágenes de teledetección en dos conjuntos de datos diferentes.
-
-  En el primer conjunto de datos, que consta de imágenes del sensor remoto AVIRIS, el enfoque propuesto superó a los 
-  otros métodos en términos de precisión de clasificación, alcanzando una precisión del 93,74\%. En el segundo conjunto 
-  de datos, que consta de imágenes del sensor remoto HYDICE, el enfoque propuesto también superó a los otros métodos, 
-  alcanzando una precisión del 93,47\%.
-
-- Unsupervised Feature Learning in Remote Sensing
-
-  En este artículo se propone un algoritmo de aprendizaje no supervisado de última generación al conjunto de datos xView, 
-  ruidoso y extremadamente desequilibrado, para entrenar un extractor de características que se adapta a varias tareas: 
-  búsqueda de similitud visual que funciona bien tanto en clases comunes como raras; identificación de valores atípicos 
-  dentro de un conjunto de datos etiquetados; y aprendizaje automático de una jerarquía de clases natural.
-
-  Las conclusiones de los autores luego de experimentar fueron:
-
-  El aprendizaje de características no supervisado (UFL) supera significativamente a los modelos de autoencoder en la 
-  tarea de clasificación de imágenes no supervisada. UFL logró una precisión del 18,3\% en el top 1 y del 54,5\% en el 
-  top 5, en comparación con solo el 3,6\% y el 19,9\% para el autoencoder.
-
-  El preentrenamiento del modelo UFL en ImageNet antes del fine-tuning en el conjunto de datos objetivo (xView) conduce 
-  a una gran mejora en el rendimiento. El modelo UFL preentrenado logró una precisión del 12,9\% en el top 1 y del 47,6\% 
-  en el top 5 sin ningún fine-tuning en xView.
-
-  El fine-tuning del modelo UFL en el conjunto de datos objetivo después del preentrenamiento en ImageNet mejora aún más 
-  el rendimiento. El fine-tuning aumentó la precisión del top 1 del 12,9\% al 18,3\% y la precisión del top 5 del 47,6\% 
-  al 54,5\%.
-
-  El uso de una CNN más profunda (ResNet50 frente a ResNet18) conduce a un pequeño aumento en el rendimiento para el 
-  modelo UFL. Sin embargo, ResNet18 todavía logra un rendimiento bastante bueno mientras es más rápido y menos costoso 
-  computacionalmente.
-
-  El rendimiento del modelo supervisado (42,4\% en el top 1, 65,6\% en el top 5) establece un límite superior en la 
-  precisión que se puede lograr sin usar información de etiqueta durante el entrenamiento. El modelo UFL logra un 
-  rendimiento bastante bueno considerando que se entrena de manera completamente no supervisada, sin acceso a datos de 
-  etiqueta.
-
-  El muestreo equilibrado por clase durante el entrenamiento probablemente mejoraría el rendimiento del modelo UFL, 
-  pero requiere acceso a información de etiqueta y, por lo tanto, no se utilizó. Se usó un muestreo equilibrado por 
-  clase para el modelo supervisado.
-
-- Spectral-Spatial Feature Extraction for Hyperspectral Image Classification: A Dimension Reduction and Deep Learning 
-Approach
-
-  Los autores proponen una técnica que utiliza la reducción de dimensionalidad y el aprendizaje profundo para extraer 
-  características espectrales y espaciales de las imágenes hiperspectrales, con el objetivo de mejorar la precisión de 
-  la clasificación.
-
-  La técnica propuesta consta de dos etapas principales como el anterior. En la primera etapa, se utiliza el análisis 
-  de componentes principales (PCA) para reducir la dimensión de las imágenes hiperspectrales. PCA se aplica a cada 
-  banda espectral de la imagen, lo que permite reducir la dimensión de las imágenes mientras se mantiene la información 
-  más relevante. Como resultado, se obtiene una representación de las imágenes en un espacio de menor dimensión.
-
-  En la segunda etapa, se utiliza una red neuronal convolucional (CNN) para aprender una representación de 
-  características espaciales y espectrales de las imágenes hiperspectrales. La CNN se entrena utilizando la 
-  representación de las imágenes obtenida en la primera etapa, y se utiliza para clasificar las imágenes en diferentes 
-  categorías.
-
-  En el primer conjunto de datos, que consta de imágenes hiperespectrales de la Tierra, el enfoque propuesto superó a 
-  los otros métodos en términos de precisión de clasificación, alcanzando una precisión del 94,03\%. Los métodos 
-  comparativos incluidos en este conjunto de datos fueron el análisis discriminante lineal (LDA), el análisis de 
-  discriminante cuadrático (QDA), la máquina de vectores de soporte (SVM) y el enfoque basado en PCA.
-
-  En el segundo conjunto de datos, que consta de imágenes hiperespectrales de cultivos, el enfoque propuesto también 
-  superó a los otros métodos, alcanzando una precisión del 98,57\%. Los métodos comparativos incluidos en este conjunto 
-  de datos fueron LDA, QDA, SVM y el enfoque basado en PCA.
+Recientemente se está trabajando en un modelo llamado Segment Anything Model (SAM) \cite{SAM}, que es particularmente útil 
+en el campo de la detección y la clasificación de instalaciones en imágenes satelitales. Dada su fiabilidad usamos 
+este modelo para comparar sus resultados con los implementados por nosotros.
 
 
-\subsection{Aprendizaje Supervisado}
-
-Una de las aplicaciones más comunes del aprendizaje supervisado en la detección y clasificación de objetos en imágenes 
-satelitales es la detección de edificios, carreteras, cuerpos de agua y otros objetos de interés. Para entrenar un 
-modelo de aprendizaje automático, se recopila una base de datos de imágenes satelitales con objetos etiquetados y se 
-utiliza para entrenar el modelo. Una vez que se ha entrenado el modelo, se puede utilizar para detectar y clasificar 
-objetos similares en nuevas imágenes satelitales.
-
-El aprendizaje profundo es una técnica popular que se utiliza para la detección de objetos en 
-imágenes satelitales. Los modelos de aprendizaje profundo, como las redes neuronales convolucionales (CNN), pueden 
-aprender características complejas de las imágenes satelitales, lo que les permite detectar objetos con mayor precisión.
-
-Además del aprendizaje profundo, existen otras técnicas de aprendizaje supervisado que se utilizan en la detección y 
-clasificación de objetos en imágenes satelitales, como la clasificación basada en árboles de decisión, la regresión 
-logística y los clasificadores de vectores de soporte.
-
-\subsection{Articulos Relacionados}
-
-- Detection by classification of buildings in multispectral satellite imagery
-
-  El enfoque de los autores consiste en entrenar una Red Neuronal Convolucional (CNN) desde cero para clasificar parches de 
-  imágenes multiespectrales tomadas por satélites como si pertenecieran o no a una clase de edificios. Luego se adapta 
-  la red de clasificación para la detección convirtiendo las capas completamente conectadas de la red en capas 
-  convolucionales, lo que permite que la red procese imágenes de cualquier resolución.
-
-- Satellite Image Classification with Deep Learning
-
-  Los autores proponen un ensamblado de redes neuronales convolucionales y redes neuronales adicionales que integran los 
-  metadatos satelitales con las características de las imágenes. Las CNN extraer\'an un mapa de caracter\'isticas que 
-  luego se convina con metadatos de las im\'agenes para alimentar una red neuronal densa que aprender\'a a clasificar el 
-  objeto principal de la im\'agen. Los metadatos no se filtran pues la idea es que la red aprenda que metadato es m\'as importante 
-  en la clasificaci\'on. En el momento en que los autores escribieron el art\'iculo, el sistema se encuentraba en segundo lugar en la competencia 
-  TopCoder de fMoW(Functional Map of The World). Su precisión total es del 83\%, el puntaje F1 es de 0.797, y clasifica 15 de las clases con una 
-  precisión del 95\% o mejor.
-
-- Detection, Classification and Boundary Regularization of Buildings in Satellite Imagery Using Faster Edge Region 
-Convolutional Neural Networks
-
-  En este artículo, con el fin de mejorar la precisión de la detección y clasificación de edificios, los autores proponen un 
-  algoritmo de Faster Edge Region Convolutional Neural Networks (FER-CNN). Este algoritmo propuesto se entrena y evalúa 
-  en diferentes conjuntos de datos. Además, proponen un nuevo método para mejorar la detección de los límites de los 
-  edificios detectados. Los resultados del algoritmo se comparan con los de otros métodos, como el Faster Region 
-  Convolution Neural Network (Faster R-CNN) clásico con el VGG16 original y el Single-Shot Multibox Detector (SSD). Los 
-  resultados experimentales muestran que el método propuesto permiten obtener una precisión media de detección del 97,5\% con 
-  una tasa de clasificación de falsos positivos del 8,4\%. Una ventaja adicional del método propuesto es una mejor resistencia 
-  a las sombras, que es un problema muy común en las imágenes satelitales de áreas urbanas.
-
-- Unsupervised feature learning for urban land use classification using deep convolutional neural networks
-
-  En este art\'iculo se enfoca la clasificación no supervisada de diferentes tipos de usos del suelo urbano en imágenes de satélite utilizando 
-  redes neuronales convolucionales profundas (DCNN). En este trabajo combinan una DCNN con un algoritmo de clustering no 
-  supervisado. El objetivo de la DCNN es aprender características de las imágenes satelitales, mientras que el algoritmo 
-  de clustering agrupa los pixeles similares en la imagen. La DCNN se entrena con un algoritmo del tipo autoencoder. El 
-  algoritmo de clustering utilizado es del tipo clustering espectral, utilizando una matriz de similitud de los datos 
-  para agrupar los puntos en el espacio de características. El método fue aplicado a una imagen de satélite óptico de 
-  una ciudad en China utilizando la biblioteca de aprendizaje profundo Caffe. Los resultados experimentales mostraron 
-  que el enfoque propuesto obtuvo una tasa de precisión global del 95\%.
 
 
 \section{Dataset}
@@ -386,12 +236,12 @@ proveen resultados prometedores, aunque no tan descriptivos y pr\'acticos como l
 
 Ver figuras 1, 2, 3, 4
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.5\textwidth]{estadio_guillermon_moncada.jpg}
-  \caption{Imagen Original: Estadio Guillerm\'on Moncada}
-  \label{fig:estadio_guillermon_moncada}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{estadio_guillermon_moncada.jpg}
+%   \caption{Imagen Original: Estadio Guillerm\'on Moncada}
+%   \label{fig:estadio_guillermon_moncada}
+% \end{figure}
 
 \begin{figure}[h]
   \centering
@@ -424,7 +274,7 @@ Ver figuras 1, 2, 3, 4
     \bibitem{citekey}
         Ishii, Tomohiro, Edgar Simo-Serra, Satoshi Iizuka, Yoshihiko Mochizuki, Akihiro Sugimoto, Hiroshi Ishikawa, y Ryosuke Nakamura. «Detection by classification of buildings in multispectral satellite imagery». En 2016 23rd International Conference on Pattern Recognition (ICPR), 3344-49, 2016. https://doi.org/10.1109/ICPR.2016.7900150.
     
-    \bibitem{citekey}
+    \bibitem{satelite}
         Pritt, Mark, y Gary Chern. «Satellite Image Classification with Deep Learning». En 2017 IEEE Applied Imagery Pattern Recognition Workshop (AIPR), 1-7, 2017. https://doi.org/10.1109/AIPR.2017.8457969.
 
     \bibitem{citekey}
@@ -438,6 +288,35 @@ Ver figuras 1, 2, 3, 4
 
     \bibitem{citekey}
         W. Shao, "Unsupervised feature learning for urban land use classification using deep convolutional neural networks", ISPRS Journal of Photogrammetry and Remote Sensing, 2016
+        
+    \bibitem{FRCNN}
+        Girshick Ross, "Fast R-CNN", En 2015 ICCV. https://arxiv.org/abs/1504.08083
+      
+    \bibitem{SAM}
+        https://encord.com/blog/segment-anything-model-explained/\#h3
+
+    \bibitem{citekey}
+        Wenzhi Zhao; Shihong Du, "Spectral-Spatial Feature Extraction for Hyperspectral Image Classification: A Dimension Reduction and Deep Learning Approach", En 2016 IEEE Transactions on Geoscience and Remote Sensing, https://ieeexplore.ieee.org/abstract/document/7450160
+
+    \bibitem{citekey}
+        Adriana Romero; Carlo Gatta; Gustau Camps-Valls, "Unsupervised Deep Feature Extraction for Remote Sensing Image Classification", en 2016 IEEE Transactions on Geoscience and Remote Sensing, https://ieeexplore.ieee.org/document/7293195
+    
+    \bibitem{citekey}
+        Aaron Reite, Scott Kangas, Zackery Steck, Steven Goley, Jonathan Von Stroh, Steven Forsyth, "Unsupervised Feature Learning in Remote Sensing", en 2019 https://arxiv.org/abs/1908.02877
+
+    \bibitem{citekey}
+        Tomohiro Ishii; Edgar Simo-Serra; Satoshi Iizuka; Yoshihiko Mochizuki; Akihiro Sugimoto; Hiroshi Ishikawa; Ryosuke Nakamura, "Detection by classification of buildings in multispectral satellite imagery", en 2016 23rd International Conference on Pattern Recognition (ICPR), https://ieeexplore.ieee.org/document/7900150
+    
+    \bibitem{citekey}     
+        Dixit, M., Chaurasia, K., Mishra, V.K. (2021). Automatic Building Extraction from High-Resolution Satellite Images Using Deep Learning Techniques. In: Dave, M., Garg, R., Dua, M., Hussien, J. (eds) Proceedings of the International Conference on Paradigms of Computing, Communication and Data Sciences. Algorithms for Intelligent Systems. Springer, Singapore. $https://doi.org/10.1007/978-981-15-7533-4_61$
+        
+    \bibitem{citekey}
+        M M Zhu, Y L Xu, S P Ma, H Q Ma, "Airport Detection on Remote Sensing Images Using Fater Region-based Convolutional Neural Network", Journal of Physics: Conference Series, vol.1060, pp.012037, 2018. https://iopscience.iop.org/article/10.1088/1742-6596/1060/1/012037/meta
+
+    
+
+
+
   \end{thebibliography}
 
 \end{document}
