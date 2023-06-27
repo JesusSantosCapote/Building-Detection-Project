@@ -289,7 +289,7 @@ ValP\_var : varianza de Precision en los datos de validacion
     \end{table}
 
 La experimentaci\'on con esta red consisti\'o en variar la arquitectura variando las capas internas y usando redes 
-preentrenadas o usando pesos random. Los experimentos son descritos con m\'as detalle en la \ref{tab:resultados1}
+preentrenadas o usando pesos random. Los experimentos son descritos con m\'as detalle en el cuadro \ref{tab:resultados1}
 
 Se puede observar que el experimento numero 5 fue el de mejores resultados, se puede llegar a la conclusión que el uso de 
 redes preentrenadas y las arquitecturas utilizadas en el modelo influyeron en los resultados de manera positiva. Al observar 
@@ -320,7 +320,7 @@ sobre el modelo inceptionV3, que nos facilita obtener mejores resultados con men
 arquitectura de las 3 variaciones utilizadas:  
 En la arquitectura inicial los datos de entrada se pasaban al modelo inceptionv3 cuya salida era enviada a una capa densa de 
 256 neuronas, esta enviaba a una capa densa de 128 neurona la cual finalmente enviaba a la capa que daba la clasificación 
-final. La evaluación del modelo en los datos de prueba tuvo resultados prometedores como se puede apreciar en la tabla. Aun 
+final. La evaluación del modelo en los datos de prueba tuvo resultados prometedores como se puede apreciar en el cuadro \ref{tabla:experimentosIncep} . Aun 
 así, resultaba interesante intentar mantener los mismo resultados utilizando una arquitectura menos profunda y menos 
 compleja. Se ideó una nueva arquitectura donde las dos capas densas intermedias( la de 256 neuronas y 128 neuronas 
 respectivamente) serían sustituidas por una sola capa de 256 neuronas. Esta variación proporciona los peores resultados de 
@@ -349,6 +349,7 @@ varL: varianza de la pérdida
     2 & InceptionV3 densa(256) salida(densa(2)) & 4 & 0.64416 & 0.001130 & 25.20845 & 112.8327 \\
     3 & InceptionV3 densa(128) salida(densa(2)) & 4 & 0.94125 & 0.001466 & 0.14125 & 0.002228 \\
     \hline
+    \label{tabla:experimentosIncep}
     \end{tabular}
 \end{table}
 
@@ -365,7 +366,7 @@ La Figura \ref{fig:Figure_3exp} muestra la curva de entrenamiento del experiment
 Se realizaron siete experimentos sobre tres variaciones del modelo. Espec\'ificamente se variaron los backbones del 
 modelo Faster-RCNN, se probaron distintas cantidades de datos de validaci\'on y prueba y se variaron la cantidad de \'epocas 
 de entrenamiento. Para evaluar el rendimiento de los modelos de experimentación se calcul\'o la m\'etrica Mean Average Presition sobre el conjunto 
-de predicciones del modelo sobre el dataset Cuba Stadia descrito en la secci\'on Dataset.  En el Cuadro \ref{tabla:experimentosFaster} se muestran los resultados de los experimentos.
+de predicciones del modelo sobre el dataset Cuba Stadia descrito en la secci\'on Dataset.  En el cuadro \ref{tabla:experimentosFaster} se muestran los resultados de los experimentos.
 
 Datos Train: Cantidad de datos de entrenamiento
 Datos Val: Cantidad de datos de validacion

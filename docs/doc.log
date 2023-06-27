@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  27 JUN 2023 12:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  27 JUN 2023 13:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -302,20 +302,20 @@ File: photo_2023-06-24_21-49-00.jpg Graphic file (type jpg)
 Package pdftex.def Info: photo_2023-06-24_21-49-00.jpg  used on input line 311.
 (pdftex.def)             Requested size: 242.98541pt x 203.00383pt.
 [7]
-Overfull \hbox (99.29579pt too wide) in paragraph at lines 344--353
+Overfull \hbox (99.29579pt too wide) in paragraph at lines 344--354
  [][] 
  []
 
 <3.png, id=32, 395.3169pt x 330.2739pt>
 File: 3.png Graphic file (type png)
 <use 3.png>
-Package pdftex.def Info: 3.png  used on input line 357.
+Package pdftex.def Info: 3.png  used on input line 358.
 (pdftex.def)             Requested size: 173.56177pt x 145.00346pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8 <./photo_2023-06-24_21-48-53.jpg>]
-Overfull \hbox (55.89627pt too wide) in paragraph at lines 376--389
+Overfull \hbox (55.89627pt too wide) in paragraph at lines 377--390
  [][] 
  []
 
@@ -326,19 +326,19 @@ Underfull \vbox (badness 1019) has occurred while \output is active []
 <mobilnet_v3_large_320_fpn_20e.png, id=40, 416.2752pt x 331.7193pt>
 File: mobilnet_v3_large_320_fpn_20e.png Graphic file (type png)
 <use mobilnet_v3_large_320_fpn_20e.png>
-Package pdftex.def Info: mobilnet_v3_large_320_fpn_20e.png  used on input line 402.
+Package pdftex.def Info: mobilnet_v3_large_320_fpn_20e.png  used on input line 403.
 (pdftex.def)             Requested size: 173.56177pt x 138.30882pt.
  [10 <./3.png> <./mobilnet_v3_large_320_fpn_20e.png>]
 <estadio_guillermon_moncada.jpg, id=46, 559.50967pt x 559.50967pt>
 File: estadio_guillermon_moncada.jpg Graphic file (type jpg)
 <use estadio_guillermon_moncada.jpg>
-Package pdftex.def Info: estadio_guillermon_moncada.jpg  used on input line 454.
+Package pdftex.def Info: estadio_guillermon_moncada.jpg  used on input line 455.
 (pdftex.def)             Requested size: 173.56177pt x 173.55719pt.
  [11]
 <SAM.png, id=50, 570.933pt x 586.8324pt>
 File: SAM.png Graphic file (type png)
 <use SAM.png>
-Package pdftex.def Info: SAM.png  used on input line 461.
+Package pdftex.def Info: SAM.png  used on input line 462.
 (pdftex.def)             Requested size: 173.56177pt x 178.39711pt.
 
 
@@ -347,7 +347,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figure_1.png, id=51, 361.35pt x 361.35pt>
 File: Figure_1.png Graphic file (type png)
 <use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 468.
+Package pdftex.def Info: Figure_1.png  used on input line 469.
 (pdftex.def)             Requested size: 173.56177pt x 173.56181pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -355,7 +355,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Figure_2.png, id=52, 462.528pt x 346.896pt>
 File: Figure_2.png Graphic file (type png)
 <use Figure_2.png>
-Package pdftex.def Info: Figure_2.png  used on input line 475.
+Package pdftex.def Info: Figure_2.png  used on input line 476.
 (pdftex.def)             Requested size: 173.56177pt x 130.17036pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -363,56 +363,56 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <canny.png, id=53, 536.60475pt x 537.207pt>
 File: canny.png Graphic file (type png)
 <use canny.png>
-Package pdftex.def Info: canny.png  used on input line 482.
+Package pdftex.def Info: canny.png  used on input line 483.
 (pdftex.def)             Requested size: 173.56177pt x 173.75409pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 495.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 496.
 (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Underfull \hbox (badness 2150) in paragraph at lines 495--496
+Underfull \hbox (badness 2150) in paragraph at lines 496--497
 \OT1/cmr/m/n/9 ro Su-gi-mo-to, Hi-roshi Ishi-ka-wa, y Ryo-su-ke Na-ka-mu-ra. []Detection by clas-
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 495--496
+Underfull \hbox (badness 4132) in paragraph at lines 496--497
 \OT1/cmr/m/n/9 si-fi-ca-tion of buil-dings in mul-tis-pec-tral sa-te-lli-te ima-gery[]. En 2016 23rd
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 495--496
+Underfull \hbox (badness 5331) in paragraph at lines 496--497
 \OT1/cmr/m/n/9 In-ter-na-tio-nal Con-fe-ren-ce on Pat-tern Re-cog-ni-tion (ICPR), 3344-49, 2016.
  []
 
 [12 <./estadio_guillermon_moncada.jpg>]
-Underfull \hbox (badness 1924) in paragraph at lines 519--520
+Underfull \hbox (badness 1924) in paragraph at lines 520--521
 \OT1/cmr/m/n/9 proach", En 2016 IEEE Transac-tions on Geos-cien-ce and Re-mo-te Sen-sing,
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 534--535
+Underfull \hbox (badness 2894) in paragraph at lines 535--536
 []\OT1/cmr/m/n/9 M M Zhu, Y L Xu, S P Ma, H Q Ma, .[]irport De-tec-tion on Re-
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 534--535
+Underfull \hbox (badness 1910) in paragraph at lines 535--536
 \OT1/cmr/m/n/9 mo-te Sen-sing Ima-ges Using Fa-ter Region-based Con-vo-lu-tio-nal Neu-ral Net-
  []
 
 
-Underfull \hbox (badness 4242) in paragraph at lines 534--535
+Underfull \hbox (badness 4242) in paragraph at lines 535--536
 \OT1/cmr/m/n/9 work", Jour-nal of Phy-sics: Con-fe-ren-ce Se-ries, vol.1060, pp.012037, 2018.
  []
 
 [13 <./SAM.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
+Underfull \hbox (badness 10000) in paragraph at lines 538--539
 []\OT1/cmr/m/n/9 Targ, Sasha, Dio-go Al-mei-da, y Ke-vin Ly-man. []Resnet in Res-net:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
+Underfull \hbox (badness 10000) in paragraph at lines 538--539
 \OT1/cmr/m/n/9 Ge-ne-ra-li-zing Re-si-dual Ar-chi-tec-tu-res[]. ar-Xiv, 25 de mar-zo de 2016.
  []
 
@@ -425,15 +425,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3244 strings out of 478582
- 53172 string characters out of 2843872
- 376963 words of memory out of 3000000
- 21419 multiletter control sequences out of 15000+600000
+ 3245 strings out of 478582
+ 53197 string characters out of 2843872
+ 376973 words of memory out of 3000000
+ 21420 multiletter control sequences out of 15000+600000
  473686 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,62p,547b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy9.pfb>
-Output written on doc.pdf (15 pages, 2448472 bytes).
+Output written on doc.pdf (15 pages, 2448469 bytes).
 PDF statistics:
  127 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

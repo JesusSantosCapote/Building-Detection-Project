@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1687883081 "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" "doc.pdf" "doc" 1687883082
+["pdflatex"] 1687886061 "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" "doc.pdf" "doc" 1687886062
   "3.png" 1687811119 25224 521a402cc8407591c5f212b6bef65344 ""
   "C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1682304497 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm0900.pk" 1671769804 10472 42af76abb624ac43d6ad813d0b27e51d ""
@@ -53,9 +53,9 @@
   "Figure_2.png" 1687660622 47048 863eeeb5d7e971ec4d54f2435ff410c4 ""
   "SAM.png" 1687827064 890480 690a6eabcdb461812af3d04b44d1d9a7 ""
   "canny.png" 1687660622 323572 54ae64670df8d81931d136e2372fec7b ""
-  "doc.aux" 1687883082 5804 67b1839a34305af18de5788e7231004a "pdflatex"
-  "doc.tex" 1687883080 35932 f2def9360f39f7bea5a0fa5438333672 ""
-  "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" 1687883080 35932 f2def9360f39f7bea5a0fa5438333672 ""
+  "doc.aux" 1687886062 5849 4572c6409e9ed6ea2e1e88084955d0bf "pdflatex"
+  "doc.tex" 1687886061 36008 d19deef5c7894021700b6c016d0dd18b ""
+  "e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex" 1687886061 36008 d19deef5c7894021700b6c016d0dd18b ""
   "estadio_guillermon_moncada.jpg" 1687139674 181105 fd9d7152b4d433c471fd7f36f7ab9673 ""
   "mobilnet_v3_large_320_fpn_20e.png" 1687717196 23199 6a7bab0db50986ac96a7d1e76f744084 ""
   "photo_2023-06-24_21-48-53.jpg" 1687657737 27077 ee34360ac63cf698cf5b31edc388c8b6 ""
