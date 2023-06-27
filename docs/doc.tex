@@ -1,4 +1,3 @@
-
 \documentclass[article]{llncs}
 %
 \usepackage[utf8]{inputenc}
@@ -30,30 +29,55 @@ Rainel Fern\'andez Abreu, Eduardo Garc\'ia Maleta}
 
 \keywords{Detección de Objetos \and Clasificación de Im\'agenes \and Machine Learning \and Pytorch \and Keras \and Tensorflow \and Faster-RCNN}
 
+Deep learning is a class of machine learning models that
+represent data at different levels of abstraction by means of
+multiple processing layers [1]. It has achieved astonishing
+success in object detection and classification by combining
+large neural network models, called convolutional neural
+networks (CNNs), with powerful graphical processing units
+(GPUs). Since 2012, CNN-based algorithms have dominated
+the annual ImageNet Large Scale Visual Recognition
+Challenge for detecting and classifying objects in photographs
+[2]. This success has caused a revolution in image
+understanding, and the major technology companies, including
+Google, Microsoft and Facebook, have already deployed CNNbased products and services 
 
 \section{Intoducci\'on}
-La utilización de imágenes satelitales en el ámbito del aprendizaje automático ha permitido avances significativos en áreas como 
-la planificación urbana, la gestión de recursos naturales y la seguridad nacional. Al entrenar modelos de aprendizaje automático con 
-imágenes satelitales, es posible identificar deslizamientos de tierra, plantaciones ilícitas, derrumbes, centros poblacionales no 
-registrados, entre otras aplicaciones. Sin embargo, uno de los problemas en este campo es la identificación y caracterización de 
-diferentes tipos de construcciones. Afortunadamente, la comunidad científica ya ha abordado este problema en gran medida mediante 
-el entrenamiento de modelos de detección con imágenes satelitales multiespectrales. A pesar de esto, este tipo de imágenes son 
-difíciles de obtener y tienen precios elevados. 
+La detección de instalaciones es un tema de gran relevancia en diversas áreas, como la ingeniería, la construcción, 
+la planificación urbana y la gestión de recursos naturales, entre otras. La detección precisa y 
+eficiente de estas instalaciones es esencial para la toma de decisiones informadas y la 
+optimización de los recursos.
 
-El objetivo de este trabajo es comprobar la factibilidad de abordar el problema de detección de instalaciones utilizando im\'agenes satelitales 
-en RGB. Con este fin se define una reducción del problema. Los modelos implementados tratar\'an de identificar un subconjunto 
-pequeño de tipos de instalaciones. Se proponen cuatro modelos, dos de clasificación de im\'agenes, uno de detección de objetos y uno segmentaci\'on con clustering. 
+Anteriormente, la detección de instalaciones se ha realizado principalmente de forma manual o mediante 
+técnicas de procesamiento de imágenes tradicionales, lo que puede resultar costoso y poco efectivo. 
+Con el auge de la inteligencia artificial y el aprendizaje automático, se ha abierto la posibilidad 
+de aplicar estas técnicas para mejorar la detección de instalaciones. Particularmente, dentro del aprendizaje 
+automático está el aprendizaje profundo(Deep learning), que no son más que modelos que repesentan los datos en 
+diferentes niveles de abstracción por medio de múltiples capas de procesamiento, estos han logrado un éxito importante 
+en la detección y clasifficación de instalaciones mediante la combinación de grandes modelos de redes neuronales, 
+llamados redes neuronales convolucionales (CNN), con unidades potentes de procesamiento(GPUs). Este éxito ha provocado 
+una revolución en la comprensión de imágenes, y las principales empresas de tecnología, incluidas 
+Google, Microsoft y Facebook, ya han implementado productos y servicios basados en CNN.
+
+Por lo general estos modelos utilizan imágenes satelitales para entrenarse, pero estas son difíciles de obtener, 
+y tienen precios elevados. Por lo tanto el objetivo principal de este trabajo es comprobar la 
+factibilidad de abordar el problema de detección de instalaciones utilizando imágenes satelitales 
+en RGB.
+
+Para la solución de este trabajo seguimos los siguientes pasos descritos a lo largo del mismo:  
+
+\begin{itemize}
+    \item Realizar una revisión exhaustiva de la literatura existente sobre detección de instalaciones y técnicas de machine learning aplicadas a este problema.
+    \item Desarrollar una o varias propuestas de modelos de aprendizaje automático que permitan detectar instalaciones en las imágenes de prueba.
+    \item Evaluar el desempeño del modelo a través de métricas de evaluación adecuadas y compararlo con otros enfoques existentes.
+\end{itemize}
+
+Los modelos implementados tratarán de identificar un subconjunto pequeño de tipos de 
+instalaciones. Se proponen cuatro modelos, dos de clasificación de imágenes, 
+uno de detección de objetos y uno segmentación con clustering. 
 
 
-El modelo de detección objetos propuesto es el Faster-RCNN \cite{FRCNN}. Se entren\'o con im\'agenes de m\'ultiples tipos de estadios y se 
-prob\'o su rendimiento con im\'agenes de estadios de beibol cubanos. Dentro de su conjunto de entrenamiento no hay im\'agenes del 
-territorio nacional. Los modelos de segmentación con clustering tambi\'en son probados con el mismo conjunto de prueba de estadios cubanos.
 
-Ambos modelos de clasificaci\'on son un ensamblado de distintas redes convolucionales. Una de ellas est\'a compuesta por las redes 
-InceptionV3\cite{inceptionv3}, Xception\cite{xception}, ResNet\cite{resnet} y DenseNet\cite{densenet}. Se entren\'o para reconocer zool\'ogicos, aeropuertos, cementerios, estadios y parques. 
-El otro modelo de clasificación est\'a compuesto por las redes InceptionV3 y DensNet y fue entrenado para reconocer aeropuertos y zool\'ogicos.
-
-Mas adelante se explicar\'a en detalle las particularidades de cada modelo.
 
   
 
@@ -61,34 +85,34 @@ Mas adelante se explicar\'a en detalle las particularidades de cada modelo.
 Actualmente para resolver la problemática se utilizan técnicas de aprendizaje profundo, específicamente 
 redes neuronales convolucionales, para la detección y clasificación de edificios e instalaciones en imágenes de 
 teledetección y satélite. Estas redes neuronales convolucionales permiten extraer características relevantes de las imágenes 
-y clasificarlas en diferentes categorías.
+y clasificarlas en diferentes categorías\cite{CNN1,CNN2,CNN3,CNN4}.
 
 Algunos artículos utilizan técnicas de reducción de dimensionalidad, como Análisis de Componentes Principales 
 (PCA), para extraer características de las imágenes y reducir la complejidad de las mismas. PCA selecciona las 
 características más importantes de la imagen y las utiliza para entrenar el modelo de aprendizaje profundo, lo que 
-acelera el proceso de entrenamiento y mejora la precisión.
+acelera el proceso de entrenamiento y mejora la precisión \cite{SPCA}.
 
 Otra técnica utilizada es la transferencia de aprendizaje para mejorar el rendimiento de las redes neuronales. Esta 
 técnica implica reutilizar una red previamente entrenada en una tarea relacionada para una nueva tarea. 
 Al utilizar el conocimiento previo adquirido en la tarea anterior, el modelo puede aprender más rápido y mejorar 
-su precisión.
+su precisión\cite{ABE}.
 
 Otros utilizan técnicas de filtrado guiado para mejorar la calidad de la solución. Esta técnica utiliza una 
-imagen guía de alta calidad para filtrar una imagen de baja calidad y mejorar la resolución y la claridad de la imagen.
+imagen guía de alta calidad para filtrar una imagen de baja calidad y mejorar la resolución y la claridad de la imagen.\cite{DBC}
 
 La optimización estructurada también se emplea en algunos artículos para mejorar la precisión de la segmentación de 
 edificios. Esta técnica utiliza restricciones estructurales para mejorar la coherencia y la continuidad de los 
-objetos segmentados, lo que puede mejorar la precisión y la calidad de la solución.
+objetos segmentados, lo que puede mejorar la precisión y la calidad de la solución \cite{DBS}.
 
 Otro enfoque utilizado es la combinación de varias de estas técnicas. Algunos autores utilizan algoritmos de clustering 
 para el procesamiento de las imágenes y encontrar patrones en estas, los algoritmos más usados son el K-Means y Mean Shift. Otras de las más combinadas 
-son la reducción de dimensiones con PCA y redes neuronales convolucionales.
+son la reducción de dimensiones con PCA y redes neuronales convolucionales \cite{CLUS1,CLUS2}.
 
 Ross Girshick en su artículo "Fast R-CNN" hace una propuesta de una nueva técnica \cite{FRCNN}. Fast R-CNN utiliza una red neuronal 
 convolucional para extraer características de la imagen y una capa de regresión para localizar objetos en la imagen. 
 A diferencia de "R-CNN", "Fast R-CNN" utiliza una sola red convolucional para extraer características de la imagen y 
 detectar objetos, lo que mejora la eficiencia computacional y la velocidad de procesamiento. Su eficiencia computacional y su alta precisión en la detección de objetos 
-lo hacen una técnica atractiva, por lo que nuestro modelo principal se basa en esta. 
+lo hacen una técnica atractiva, por lo que nuestro modelo principal se basa en esta \cite{ADFCNN,DC-FCNN}. 
 
 En el artículo "Satellite Image Classification with Deep Learning" \cite{satelite}, se ve un enfoque donde primeramente se 
 preprocesan las imágenes para posteriormente brindarselas a una CNN, alargando los bordes de las cajas donde se encuentran los objetos en proporción con el tamaño de 
@@ -456,28 +480,28 @@ Ver figuras \ref{fig:estadio_guillermon_moncada}, \ref{fig:Figure_1}, \ref{fig:S
 \end{figure}
 
 \begin{thebibliography}{8}
-    \bibitem{citekey}
+    \bibitem{DRL}
         K. He et al., “Deep residual learning for image recognition,” arXiv 1512.03385, Dec 2015.
   
-    \bibitem{citekey}
+    \bibitem{CNN1}
         G. Huang, “Dense connected convolutional neural networks,” IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR), 2017.
     
-    \bibitem{citekey}
+    \bibitem{DBC}
         Ishii, Tomohiro, Edgar Simo-Serra, Satoshi Iizuka, Yoshihiko Mochizuki, Akihiro Sugimoto, Hiroshi Ishikawa, y Ryosuke Nakamura. «Detection by classification of buildings in multispectral satellite imagery». En 2016 23rd International Conference on Pattern Recognition (ICPR), 3344-49, 2016. https://doi.org/10.1109/ICPR.2016.7900150.
     
     \bibitem{satelite}
         Pritt, Mark, y Gary Chern. «Satellite Image Classification with Deep Learning». En 2017 IEEE Applied Imagery Pattern Recognition Workshop (AIPR), 1-7, 2017. https://doi.org/10.1109/AIPR.2017.8457969.
 
-    \bibitem{citekey}
+    \bibitem{DC-FCNN}
         Reda, Kinga, y Michal Kedzierski. «Detection, Classification and Boundary Regularization of Buildings in Satellite Imagery Using Faster Edge Region Convolutional Neural Networks». Remote Sensing 12, n.º 14 (enero de 2020): 2240. https://doi.org/10.3390/rs12142240.
 
-    \bibitem{citekey}
+    \bibitem{CNN2}
         Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. "Going Deeper with Convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015. doi: 10.1109/CVPR.2015.7298594
 
-    \bibitem{xception}
+    \bibitem{CNN3}
         François Chollet. "Xception: Deep Learning with Depthwise Separable Convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017. doi: 10.1109/CVPR.2017.195
 
-    \bibitem{citekey}
+    \bibitem{CNN4}
         W. Shao, "Unsupervised feature learning for urban land use classification using deep convolutional neural networks", ISPRS Journal of Photogrammetry and Remote Sensing, 2016
         
     \bibitem{FRCNN}
@@ -486,22 +510,22 @@ Ver figuras \ref{fig:estadio_guillermon_moncada}, \ref{fig:Figure_1}, \ref{fig:S
     \bibitem{SAM}
         https://encord.com/blog/segment-anything-model-explained/\#h3
 
-    \bibitem{citekey}
+    \bibitem{SPCA}
         Wenzhi Zhao; Shihong Du, "Spectral-Spatial Feature Extraction for Hyperspectral Image Classification: A Dimension Reduction and Deep Learning Approach", En 2016 IEEE Transactions on Geoscience and Remote Sensing, https://ieeexplore.ieee.org/abstract/document/7450160
 
-    \bibitem{citekey}
+    \bibitem{CLUS1}
         Adriana Romero; Carlo Gatta; Gustau Camps-Valls, "Unsupervised Deep Feature Extraction for Remote Sensing Image Classification", en 2016 IEEE Transactions on Geoscience and Remote Sensing, https://ieeexplore.ieee.org/document/7293195
     
-    \bibitem{citekey}
+    \bibitem{CLUS2}
         Aaron Reite, Scott Kangas, Zackery Steck, Steven Goley, Jonathan Von Stroh, Steven Forsyth, "Unsupervised Feature Learning in Remote Sensing", en 2019 https://arxiv.org/abs/1908.02877
 
-    \bibitem{citekey}
+    \bibitem{DBS}
         Tomohiro Ishii; Edgar Simo-Serra; Satoshi Iizuka; Yoshihiko Mochizuki; Akihiro Sugimoto; Hiroshi Ishikawa; Ryosuke Nakamura, "Detection by classification of buildings in multispectral satellite imagery", en 2016 23rd International Conference on Pattern Recognition (ICPR), https://ieeexplore.ieee.org/document/7900150
     
-    \bibitem{citekey}     
+    \bibitem{ABE}     
         Dixit, M., Chaurasia, K., Mishra, V.K. (2021). Automatic Building Extraction from High-Resolution Satellite Images Using Deep Learning Techniques. In: Dave, M., Garg, R., Dua, M., Hussien, J. (eds) Proceedings of the International Conference on Paradigms of Computing, Communication and Data Sciences. Algorithms for Intelligent Systems. Springer, Singapore. $https://doi.org/10.1007/978-981-15-7533-4_61$
         
-    \bibitem{citekey}
+    \bibitem{ADFCNN}
         M M Zhu, Y L Xu, S P Ma, H Q Ma, "Airport Detection on Remote Sensing Images Using Fater Region-based Convolutional Neural Network", Journal of Physics: Conference Series, vol.1060, pp.012037, 2018. https://iopscience.iop.org/article/10.1088/1742-6596/1060/1/012037/meta
 
     \bibitem{resnet}
