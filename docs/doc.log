@@ -1,18 +1,18 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.3.29)  25 JUN 2023 00:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  27 JUN 2023 00:58
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/!!!Mis cosas/4to año/ML/Building-Detection-Project/docs/doc.tex"
-(c:/!!!Mis cosas/4to año/ML/Building-Detection-Project/docs/doc.tex
-LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-22> (c:/texlive/2023/texmf-dist/tex/latex/llncs/llncs.cls
+**"e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex"
+(e:/Universidad/4to/ML/Building Detection Project/docs/doc.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/llncs\llncs.cls
 Document Class: llncs 2022/09/05 v2.22 
  LaTeX document class for Lecture Notes in Computer Science
-(c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
-(c:/texlive/2023/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+(C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -22,32 +22,33 @@ File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
-) (c:/texlive/2023/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \c@tracingmulticols=\count193
-\mult@box=\box51
-\multicol@leftmargin=\dimen141
+\mult@box=\box50
+\multicol@leftmargin=\dimen139
 \c@unbalance=\count194
 \c@collectmore=\count195
 \doublecol@number=\count196
 \multicoltolerance=\count197
 \multicolpretolerance=\count198
-\full@width=\dimen142
-\page@free=\dimen143
-\premulticols=\dimen144
-\postmulticols=\dimen145
-\multicolsep=\skip50
-\multicolbaselineskip=\skip51
-\partial@page=\box52
-\last@line=\box53
-\maxbalancingoverflow=\dimen146
-\mult@rightbox=\box54
-\mult@grightbox=\box55
-\mult@firstbox=\box56
-\mult@gfirstbox=\box57
+\full@width=\dimen140
+\page@free=\dimen141
+\premulticols=\dimen142
+\postmulticols=\dimen143
+\multicolsep=\skip49
+\multicolbaselineskip=\skip50
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen144
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@firstbox=\box55
+\mult@gfirstbox=\box56
+\@tempa=\box57
 \@tempa=\box58
 \@tempa=\box59
 \@tempa=\box60
@@ -83,17 +84,16 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \@tempa=\box90
 \@tempa=\box91
 \@tempa=\box92
-\@tempa=\box93
 \c@minrows=\count199
 \c@columnbadness=\count266
 \c@finalcolumnbadness=\count267
-\last@try=\dimen147
-\multicolovershoot=\dimen148
-\multicolundershoot=\dimen149
-\mult@nat@firstbox=\box94
-\colbreak@box=\box95
+\last@try=\dimen145
+\multicolovershoot=\dimen146
+\multicolundershoot=\dimen147
+\mult@nat@firstbox=\box93
+\colbreak@box=\box94
 \mc@col@check@num=\count268
-) (c:/texlive/2023/texmf-dist/tex/latex/oberdiek/aliascnt.sty
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\aliascnt.sty
 Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
 )
 \c@chapter=\count269
@@ -109,26 +109,26 @@ LaTeX Font Info:    Redeclaring math symbol \Phi on input line 370.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 371.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 LaTeX Info: Redefining \vec on input line 377.
-\tocchpnum=\dimen150
-\tocsecnum=\dimen151
-\tocsectotal=\dimen152
-\tocsubsecnum=\dimen153
-\tocsubsectotal=\dimen154
-\tocsubsubsecnum=\dimen155
-\tocsubsubsectotal=\dimen156
-\tocparanum=\dimen157
-\tocparatotal=\dimen158
-\tocsubparanum=\dimen159
+\tocchpnum=\dimen148
+\tocsecnum=\dimen149
+\tocsectotal=\dimen150
+\tocsubsecnum=\dimen151
+\tocsubsectotal=\dimen152
+\tocsubsubsecnum=\dimen153
+\tocsubsubsectotal=\dimen154
+\tocparanum=\dimen155
+\tocparatotal=\dimen156
+\tocsubparanum=\dimen157
 \@tempcntc=\count270
-\fnindent=\dimen160
+\fnindent=\dimen158
 \c@@inst=\count271
 \c@@auth=\count272
 \c@auco=\count273
-\instindent=\dimen161
-\authrun=\box96
+\instindent=\dimen159
+\authrun=\box95
 \authorrunning=\toks16
 \tocauthor=\toks17
-\titrun=\box97
+\titrun=\box96
 \titlerunning=\toks18
 \toctitle=\toks19
 \c@theorem=\count274
@@ -146,20 +146,26 @@ LaTeX Info: Redefining \vec on input line 377.
 \c@question=\count286
 \c@solution=\count287
 \c@remark=\count288
-\headlineindent=\dimen162
-) (c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
+\headlineindent=\dimen160
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks20
 \inpenc@posthook=\toks21
-) (c:/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/02/13 3.86 The Babel package
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2022/02/26 3.73 The Babel package
 \babel@savecnt=\count289
-\U@D=\dimen163
-\l@unhyphenated=\language87
- (c:/texlive/2023/texmf-dist/tex/generic/babel/txtbabel.def)
+\U@D=\dimen161
+\l@unhyphenated=\language79
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count290
- (c:/texlive/2023/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks22
 \es@quotdepth=\count291
@@ -167,42 +173,36 @@ Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
-)) (c:/texlive/2023/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
-Package babel Info: Importing font and identification data for spanish
-(babel)             from babel-es.ini. Reported on input line 11.
-) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+)) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
-) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (c:/texlive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen164
-\Gin@req@width=\dimen165
-) (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\Gin@req@height=\dimen162
+\Gin@req@width=\dimen163
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
-\l__pdf_internal_box=\box98
+\l__pdf_internal_box=\box97
 )
 
 LaTeX Warning: Unused global option(s):
     [article].
 
-(./doc.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
-
-
-LaTeX Warning: Label `citekey' multiply defined.
+(doc.aux
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
 
 
 LaTeX Warning: Label `citekey' multiply defined.
@@ -256,24 +256,24 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Info: Redefining \. on input line 15.
 LaTeX Info: Redefining \% on input line 15.
- (c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count293
-\scratchdimen=\dimen166
-\scratchbox=\box99
+\scratchdimen=\dimen164
+\scratchbox=\box98
 \nofMPsegments=\count294
 \nofMParguments=\count295
 \everyMPshowfont=\toks24
 \MPscratchCnt=\count296
-\MPscratchDim=\dimen167
+\MPscratchDim=\dimen165
 \MPnumerator=\count297
 \makeMPintoPDFobject=\count298
 \everyMPtoPDFconversion=\toks25
-) (c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 28.
@@ -281,90 +281,168 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 28.
  [1
 
-{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2] [3] [4] [5]
-<Figure_1.png, id=23, 361.35pt x 361.35pt>
-File: Figure_1.png Graphic file (type png)
-<use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 248.
-(pdftex.def)             Requested size: 173.56177pt x 173.56181pt.
-<Figure_2.png, id=25, 462.528pt x 346.896pt>
-File: Figure_2.png Graphic file (type png)
-<use Figure_2.png>
-Package pdftex.def Info: Figure_2.png  used on input line 255.
-(pdftex.def)             Requested size: 173.56177pt x 130.17036pt.
+{C:/Users/Chuchi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] [5]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 259.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 259.
+
+Overfull \hbox (131.29097pt too wide) in paragraph at lines 259--270
+ [][] 
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<canny.png, id=26, 536.60475pt x 537.207pt>
+[6]
+<photo_2023-06-24_21-48-53.jpg, id=25, 395.3169pt x 330.2739pt>
+File: photo_2023-06-24_21-48-53.jpg Graphic file (type jpg)
+<use photo_2023-06-24_21-48-53.jpg>
+Package pdftex.def Info: photo_2023-06-24_21-48-53.jpg  used on input line 287.
+(pdftex.def)             Requested size: 242.98541pt x 203.00383pt.
+<photo_2023-06-24_21-49-00.jpg, id=26, 395.3169pt x 330.2739pt>
+File: photo_2023-06-24_21-49-00.jpg Graphic file (type jpg)
+<use photo_2023-06-24_21-49-00.jpg>
+Package pdftex.def Info: photo_2023-06-24_21-49-00.jpg  used on input line 294.
+(pdftex.def)             Requested size: 242.98541pt x 203.00383pt.
+ [7 <./photo_2023-06-24_21-48-53.jpg>]
+Overfull \hbox (99.29579pt too wide) in paragraph at lines 327--336
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<3.png, id=32, 395.3169pt x 330.2739pt>
+File: 3.png Graphic file (type png)
+<use 3.png>
+Package pdftex.def Info: 3.png  used on input line 340.
+(pdftex.def)             Requested size: 173.56177pt x 145.00346pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 5490) has occurred while \output is active []
+
+ [8 <./photo_2023-06-24_21-49-00.jpg>]
+Overfull \hbox (55.89627pt too wide) in paragraph at lines 359--372
+ [][] 
+ []
+
+[9 <./3.png>]
+<mobilnet_v3_large_320_fpn_20e.png, id=41, 416.2752pt x 331.7193pt>
+File: mobilnet_v3_large_320_fpn_20e.png Graphic file (type png)
+<use mobilnet_v3_large_320_fpn_20e.png>
+Package pdftex.def Info: mobilnet_v3_large_320_fpn_20e.png  used on input line 387.
+(pdftex.def)             Requested size: 173.56177pt x 138.30882pt.
+ [10 <./mobilnet_v3_large_320_fpn_20e.png>]
+<estadio_guillermon_moncada.jpg, id=46, 559.50967pt x 559.50967pt>
+File: estadio_guillermon_moncada.jpg Graphic file (type jpg)
+<use estadio_guillermon_moncada.jpg>
+Package pdftex.def Info: estadio_guillermon_moncada.jpg  used on input line 425.
+(pdftex.def)             Requested size: 173.56177pt x 173.55719pt.
+<SAM.png, id=47, 570.933pt x 586.8324pt>
+File: SAM.png Graphic file (type png)
+<use SAM.png>
+Package pdftex.def Info: SAM.png  used on input line 432.
+(pdftex.def)             Requested size: 173.56177pt x 178.39711pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Figure_1.png, id=48, 361.35pt x 361.35pt>
+File: Figure_1.png Graphic file (type png)
+<use Figure_1.png>
+Package pdftex.def Info: Figure_1.png  used on input line 439.
+(pdftex.def)             Requested size: 173.56177pt x 173.56181pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Figure_2.png, id=49, 462.528pt x 346.896pt>
+File: Figure_2.png Graphic file (type png)
+<use Figure_2.png>
+Package pdftex.def Info: Figure_2.png  used on input line 446.
+(pdftex.def)             Requested size: 173.56177pt x 130.17036pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<canny.png, id=50, 536.60475pt x 537.207pt>
 File: canny.png Graphic file (type png)
 <use canny.png>
-Package pdftex.def Info: canny.png  used on input line 262.
+Package pdftex.def Info: canny.png  used on input line 453.
 (pdftex.def)             Requested size: 173.56177pt x 173.75409pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6 <./Figure_1.png>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 275.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 275.
-
-Underfull \hbox (badness 1776) in paragraph at lines 275--276
-\OT1/cmr/m/n/9 ro Su-gi-mo-to, Hi-roshi Ishi-ka-wa, y Ryo-su-ke Na-ka-mu-ra. []De-tec-tion by clas-
+[11 <./estadio_guillermon_moncada.jpg>]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 466.
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Underfull \hbox (badness 2150) in paragraph at lines 466--467
+\OT1/cmr/m/n/9 ro Su-gi-mo-to, Hi-roshi Ishi-ka-wa, y Ryo-su-ke Na-ka-mu-ra. []Detection by clas-
  []
 
 
-Underfull \hbox (badness 3536) in paragraph at lines 275--276
+Underfull \hbox (badness 4132) in paragraph at lines 466--467
 \OT1/cmr/m/n/9 si-fi-ca-tion of buil-dings in mul-tis-pec-tral sa-te-lli-te ima-gery[]. En 2016 23rd
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 275--276
+Underfull \hbox (badness 5331) in paragraph at lines 466--467
 \OT1/cmr/m/n/9 In-ter-na-tio-nal Con-fe-ren-ce on Pat-tern Re-cog-ni-tion (ICPR), 3344-49, 2016.
  []
 
-[7 <./Figure_2.png> <./canny.png>]
-Underfull \hbox (badness 1924) in paragraph at lines 299--300
+
+Underfull \hbox (badness 1924) in paragraph at lines 490--491
 \OT1/cmr/m/n/9 proach", En 2016 IEEE Transac-tions on Geos-cien-ce and Re-mo-te Sen-sing,
  []
 
-
-Underfull \hbox (badness 2894) in paragraph at lines 314--315
+[12 <./SAM.png>] [13 <./Figure_1.png> <./Figure_2.png>]
+Underfull \hbox (badness 2894) in paragraph at lines 505--506
 []\OT1/cmr/m/n/9 M M Zhu, Y L Xu, S P Ma, H Q Ma, .[]irport De-tec-tion on Re-
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 314--315
+Underfull \hbox (badness 1910) in paragraph at lines 505--506
 \OT1/cmr/m/n/9 mo-te Sen-sing Ima-ges Using Fa-ter Region-based Con-vo-lu-tio-nal Neu-ral Net-
  []
 
 
-Underfull \hbox (badness 4242) in paragraph at lines 314--315
+Underfull \hbox (badness 4242) in paragraph at lines 505--506
 \OT1/cmr/m/n/9 work", Jour-nal of Phy-sics: Con-fe-ren-ce Se-ries, vol.1060, pp.012037, 2018.
  []
 
-[8] (./doc.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
+[]\OT1/cmr/m/n/9 Targ, Sasha, Dio-go Al-mei-da, y Ke-vin Ly-man. []Resnet in Res-net:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
+\OT1/cmr/m/n/9 Ge-ne-ra-li-zing Re-si-dual Ar-chi-tec-tu-res[]. ar-Xiv, 25 de mar-zo de 2016.
+ []
+
+[14 <./canny.png>] (doc.aux
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
 )
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3236 strings out of 476025
- 52184 string characters out of 5794015
- 1860382 words of memory out of 5000000
- 23687 multiletter control sequences out of 15000+600000
- 516608 words of font info for 46 fonts, out of 8000000 for 9000
+ 3243 strings out of 478582
+ 53167 string characters out of 2843872
+ 376962 words of memory out of 3000000
+ 21418 multiletter control sequences out of 15000+600000
+ 473686 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,62p,506b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on doc.pdf (8 pages, 822318 bytes).
+ 55i,9n,62p,547b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy9.pfb>
+Output written on doc.pdf (14 pages, 2445885 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 124 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

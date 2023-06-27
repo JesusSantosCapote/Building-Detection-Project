@@ -8,7 +8,6 @@ from pprint import pprint
 import os
 import time
 
-from torch.utils.tensorboard import SummaryWriter
 
 """Let the training begin!"""
 checkpoint_folder = "/content/drive/MyDrive/model_checkpoint"

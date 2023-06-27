@@ -32,10 +32,30 @@ Rainel Fern\'andez Abreu, Eduardo Garc\'ia Maleta}
 
 
 \section{Intoducci\'on}
-El uso de imágenes satelitales ha permitido avances significativos en la identificación y caracterización de diferentes 
-tipos de construcciones, lo cual puede ser de gran utilidad en diversas áreas como la planificación urbana, la gestión de 
-recursos naturales y la seguridad nacional, entre otras. Los autores proponen cuatro modelos, dos de clasificación de im\'agenes, 
-uno de detección de objetos y uno segmentaci\'on con el fin de identificar en im\'agenes satelitales edificaciones con una topolog\'ia espec\'ifica.
+La utilización de imágenes satelitales en el ámbito del aprendizaje automático ha permitido avances significativos en áreas como 
+la planificación urbana, la gestión de recursos naturales y la seguridad nacional. Al entrenar modelos de aprendizaje automático con 
+imágenes satelitales, es posible identificar deslizamientos de tierra, plantaciones ilícitas, derrumbes, centros poblacionales no 
+registrados, entre otras aplicaciones. Sin embargo, uno de los problemas en este campo es la identificación y caracterización de 
+diferentes tipos de construcciones. Afortunadamente, la comunidad científica ya ha abordado este problema en gran medida mediante 
+el entrenamiento de modelos de detección con imágenes satelitales multiespectrales. A pesar de esto, este tipo de imágenes son 
+difíciles de obtener y tienen precios elevados. 
+
+El objetivo de este trabajo es comprobar la factibilidad de abordar el problema de detección de instalaciones utilizando im\'agenes satelitales 
+en RGB. Con este fin se define una reducción del problema. Los modelos implementados tratar\'an de identificar un subconjunto 
+pequeño de tipos de instalaciones. Se proponen cuatro modelos, dos de clasificación de im\'agenes, uno de detección de objetos y uno segmentaci\'on con clustering. 
+
+
+El modelo de detección objetos propuesto es el Faster-RCNN \cite{FRCNN}. Se entren\'o con im\'agenes de m\'ultiples tipos de estadios y se 
+prob\'o su rendimiento con im\'agenes de estadios de beibol cubanos. Dentro de su conjunto de entrenamiento no hay im\'agenes del 
+territorio nacional. Los modelos de segmentación con clustering tambi\'en son probados con el mismo conjunto de prueba de estadios cubanos.
+
+Ambos modelos de clasificaci\'on son un ensamblado de distintas redes convolucionales. Una de ellas est\'a compuesta por las redes 
+InceptionV3\cite{inceptionv3}, Xception\cite{xception}, ResNet\cite{resnet} y DenseNet\cite{densenet}. Se entren\'o para reconocer zool\'ogicos, aeropuertos, cementerios, estadios y parques. 
+El otro modelo de clasificación est\'a compuesto por las redes InceptionV3 y DensNet y fue entrenado para reconocer aeropuertos y zool\'ogicos.
+
+Mas adelante se explicar\'a en detalle las particularidades de cada modelo.
+
+  
 
 \section{Estado del Arte}
 Actualmente para resolver la problemática se utilizan técnicas de aprendizaje profundo, específicamente 
@@ -80,8 +100,6 @@ se decidió usarlo en uno de los modelos implementados.
 Recientemente se está trabajando en un modelo llamado Segment Anything Model (SAM) \cite{SAM}, que es particularmente útil 
 en el campo de la detección y la clasificación de instalaciones en imágenes satelitales. Dada su fiabilidad usamos 
 este modelo para comparar sus resultados con los implementados por nosotros.
-
-
 
 
 \section{Dataset}
@@ -165,7 +183,8 @@ las salidas de la capa anterior para que representen probabilidades de clase par
 de activación ReLU se utiliza en la capa anterior para introducir no linealidad en la red y mejorar su capacidad de 
 aprendizaje.
 
-El modelo se entren\'o para la clasificación de im\'agenes con aeropuertos y zool\'ogicos.
+El modelo se entren\'o para la clasificación de im\'agenes con aeropuertos y zool\'ogicos. Los datos de validaci\'on y prueba 
+son subconjuntos de los datos de entrenamiento.
 
 
 \subsection{DenseNet + ResNet + InceptionV3 + Xception}
@@ -198,7 +217,8 @@ separables en profundidad. Las convoluciones separables en profundidad son una v
 que separan el procesamiento espacial y de características en dos etapas diferentes. Xception se ha entrenado en el 
 conjunto de datos ImageNet y ha demostrado ser muy eficaz para tareas de clasificación de imágenes.
 
-EL modelo fue entrenado para identificar las clases: airport terminal, burial site, park, stadium, zoo.
+EL modelo fue entrenado para identificar las clases: airport terminal, burial site, park, stadium, zoo. Los datos de validaci\'on y prueba 
+son subconjuntos de los datos de entrenamiento.
 
 \subsection{Segmentaci\'on con K-Means}
 
@@ -222,45 +242,216 @@ K-Means a la im\'agen satelital y se superponen las imagenes resultantes de apli
 
 La selecci\'on del par\'ametro K del algortimo K-Means se efect\'ua mediante el m\'etodo del codo. 
 
+\section{Experimentaci\'on}
+
+\subsection{DenseNet + ResNet + InceptionV3 + Xception}
+
+ValCA\_mean : media de Categorical\_Accuracy en los datos de validacion
+
+ValP\_mean : media de Precision en los datos de validacion
+
+ValCA\_var : varianza de Categorical\_Accuracy en los datos de validacion
+
+ValP\_var : varianza de Precision en los datos de validacion
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    Experimento & Arquitecturas & Épocas & Pesos & ValCA\_mean & ValP\_mean & ValCA\_var & ValP\_var \\
+    \hline
+    1 & DenseNet,ResNet & 4 & None & 0.25500 & 0.17135 & 0.0033 & 0.02216 \\
+    2 & DensNet,ResNet & 4 & ImageNet & 0.55918 & 0.58653 & 0.00050 & 0.00090 \\
+    3 & DenseNet,ResNet,InceptionV3,Xception & 4 & ImageNet & 0.52842 & 0.61173 & 0.00054 & 0.00908 \\
+    4 & DenseNet,ResNet,InceptionV3,Xception & 4 & None & 0.48506 & 0.46642 & 0.00020 & 0.05466 \\
+    5 & DenseNet,ResNet,InceptionV3,Xception & 12 & ImageNet & 0.64419 & 0.79838 & 0.0020 & 0.01904 \\
+    \hline
+    \end{tabular}
+    \caption{Resultados de experimentos}
+    \label{tab:resultados1}
+    \end{table}
+
+La experimentaci\'on con esta red consisti\'o en variar la arquitectura variando las capas internas y usando redes 
+preentrenadas o usando pesos random. Los experimentos son descritos con m\'as detalle en la \ref{tab:resultados1}
+
+Se puede observar que el experimento numero 5 fue el de mejores resultados, se puede llegar a la conclusión que el uso de 
+redes preentrenadas y las arquitecturas utilizadas en el modelo influyeron en los resultados de manera positiva. Al observar 
+las gráficas de estos se presentó la incógnita de si aumentar el número de epocas podía influir en los resultados, y pues en 
+el último experimentos se probó esta alternativa y demuestra resultados positivos. Las figuras \ref{fig:exp5_sample1} y
+\ref{fig:exp5_sample2} muestran las curvas entrenamiento y validacion del experimento 5.
+
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{photo_2023-06-24_21-48-53.jpg}
+    \caption{Curvas de Entrenamiento:Experimento 5-Densenet Resnet Inception Xception}
+    \label{fig:exp5_sample1}
+    \end{figure}
+    
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\linewidth]{photo_2023-06-24_21-49-00.jpg}
+    \caption{Curvas de Validacion:Experimento 5-Densenet Resnet Inception Xception}
+    \label{fig:exp5_sample2}
+    \end{figure}
+
+\subsection{InceptionV3 + DNN}
+
+Se realizaron experimentos sobre tres variaciones del mismo modelo. Los tres clasificadores utilizan la técnica de fine tuning
+sobre el modelo inceptionV3, que nos facilita obtener mejores resultados con menos datos. A continuación se describe la 
+arquitectura de las 3 variaciones utilizadas:  
+En la arquitectura inicial los datos de entrada se pasaban al modelo inceptionv3 cuya salida era enviada a una capa densa de 
+256 neuronas, esta enviaba a una capa densa de 128 neurona la cual finalmente enviaba a la capa que daba la clasificación 
+final. La evaluación del modelo en los datos de prueba tuvo resultados prometedores como se puede apreciar en la tabla. Aun 
+así, resultaba interesante intentar mantener los mismo resultados utilizando una arquitectura menos profunda y menos 
+compleja. Se ideó una nueva arquitectura donde las dos capas densas intermedias( la de 256 neuronas y 128 neuronas 
+respectivamente) serían sustituidas por una sola capa de 256 neuronas. Esta variación proporciona los peores resultados de 
+los experimentos realizados. Una última variación, utilizando 128 neuronas en lugar de 256 neuronas en la capa densa 
+intermedia proporciona los mejores resultados hasta el momento, debido quizás al tamaño limitado del dataset de entrenamiento 
+utilizado(2000 imágenes). Aunque se probaron muchas más variaciones a partir de la arquitectura inicial durante la 
+experimentación, las tres mostradas anteriormente nos parecen las más prometedoras y las que describen mejor el proceso 
+utilizado.  
+A continuación, se muestran los datos obtenidos al evaluar los modelos con los datos de prueba:
+
+mCA: media de la métrica categorical\_accuracy
+
+varCA: varianza de la métrica categorical\_accuracy  
+
+mL: media de la función de pérdida
+
+varL: varianza de la pérdida
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    Experimento & Arquitectura & Épocas & mCA & varCA & mL & varL \\
+    \hline
+    1 & InceptionV3 densa(256) densa(128) salida(densa(2)) & 4 & 0.87541 & 0.000378 & 0.544901 & 0.031261 \\
+    2 & InceptionV3 densa(256) salida(densa(2)) & 4 & 0.64416 & 0.001130 & 25.20845 & 112.8327 \\
+    3 & InceptionV3 densa(128) salida(densa(2)) & 4 & 0.94125 & 0.001466 & 0.14125 & 0.002228 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{3.png}
+    \caption{Predicci\'on de Faster-RCNN}
+    \label{fig:Figure_3exp}
+\end{figure}
+
+La Figura \ref{fig:Figure_3exp} muestra la curva de entrenamiento del experimento 3, el cual es el de mejor Presici\'on Categ\'orica.
+
+\subsection{Faster-RCNN}
+Se realizaron siete experimentos sobre tres variaciones del modelo. Espec\'ificamente se variaron los backbones del 
+modelo Faster-RCNN, se probaron distintas cantidades de datos de validaci\'on y prueba y se variaron la cantidad de \'epocas 
+de entrenamiento. Para evaluar el rendimiento de los modelos de experimentación se calcul\'o la m\'etrica Mean Average Presition sobre el conjunto 
+de predicciones del modelo sobre el dataset Cuba Stadia descrito en la secci\'on Dataset.  En el Cuadro \ref{tabla:experimentosFaster} se muestran los resultados de los experimentos.
+
+Datos Train: Cantidad de datos de entrenamiento
+Datos Val: Cantidad de datos de validacion
+mAP Test\_Dataset: Mean Average Presition sobre Cuba Stadia
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{Experimento} & \textbf{Backbone} & \textbf{Épocas} & \textbf{Datos Train} & \textbf{Datos Val} & \textbf{mAP Test\_Dataset} \\
+    \hline
+    1 & resnet50\_fpn & 5 & 3527 & 300 & 0.0264 \\
+    2 & mobilnet\_v3\_large\_320\_fpn & 5 & 3527 & 300 & 0.0016 \\
+    3 & mobilnet\_v3\_large\_320\_fpn & 10 & 3527 & 300 & 7.0721e-05 \\
+    4 & mobilnet\_v3\_large\_320\_fpn & 20 & 6894 & 700 & 0.0125 \\
+    5 & mobilnet\_v3\_large\_fpn & 5 & 3527 & 300 & 0.0005 \\
+    6 & mobilnet\_v3\_large\_fpn & 15 & 6894 & 700 & 0.0051 \\
+    7 & resnet50\_fpn & 20 & 6894 & 700 & 0 \\
+    \hline
+    \end{tabular}
+    \caption{Resultados de diferentes experimentos con diferentes backbones y configuraciones.}
+    \label{tabla:experimentosFaster}
+\end{table}
+
+\textbf{Por cuestiones de tiempo hoy lunes aun no se ha terminado el entrenamiento del experimento 7. Proximamente se actualizara la tabla}
+
+Como se puede apreciar el aumento de \'epocas en el experimento 3 con respecto al experimento 2 no influy\'o positivamente
+en el rendimiento del modelo, de esto se dedujo que, posiblemente faltaban datos. Esta hip\'otesis se prob\'o la veracidad 
+de esta hip\'otesis en el experimento 4, en el que se mejor\'o el rendimiento de los experimentos 3 y 2, esta variaci\'on del 
+modelo result\'o ser bastante r\'apida de entrenar. Dado su rapidez y la mejora de rendimiento vista se cree que con m\'as datos de entrenamiento se podr\'ia obtener resultados 
+prometedores con esta variante del modelo. La figura \ref{fig:mobilnetgosu} muestra la curva de entrenamiento de para el experimento 4. 
+N\'otese como la tendencia de mAP es a crecer.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{mobilnet_v3_large_320_fpn_20e.png}
+    \caption{Curva de Entrenamiento Faster-RCNN Experimento 4}
+    \label{fig:mobilnetgosu}
+  \end{figure}
+
+La viariante con mejor resultados fue la del experimento 1. Ante tal rendimiento con pocas \'epocas y pocos datos, se decidió 
+realizar un \'ultimo experimento, el 7, donde se aumentaba el n\'umero de \'epocas y la cantidad de datos.
+
+\subsubsection{Prueba con SAM:} Se someti\'o a SAM a la misma prueba de rendimiento que se us\'o en los experimentos con 
+Faster-RCNN, dando como resultado un valor de 0.1819 de Mean Average Presition sobre Cuba Stadia como dataset de prueba.
+Este resultado supera el de todas las variantes de Faster-RCNN con las que se experiment\'o, por lo que queda probada su eficacia 
+en la tarea de Detección de Instalaciones en im\'agenes satelitales.
+
+\subsection{Clustering sobre los p\'ixeles de la imagen}
+
+Por falta de tiempo solo se realizaron comparaciones visuales entre la segmentación producida por los algoritmos de clustering 
+implementados y la segmentación producida por SAM. Para la gran mayor\'ia de im\'agenes probadas, SAM produce 
+una segmentación mucho mejor y mas clara de los estadios que las propuestas de clustering. Por lo que se concluye, 
+emp\'iricamente, que SAM es superior a las propuestas de segmentación por clustering implementadas. Las im\'agenes 
+\ref{fig:canny}, \ref{fig:Figure_2}, \ref{fig:SAM} son evidencia de la superioridad de SAM para la segmentación.
+
 \section{Conclusiones}
 Los resultados obtenidos son prometedores dado que solo se usan im\'agenes en RGB y todos los resultados importantes 
-sobre el tema abordado utilizan im\'agenes multiespectrales. El modelo principal del trabajo, Faster R-CNN  
-obtiene como valor promedio, 0.4 en la m\'etrica Mean Average Presition(mAP), detectando instancias de estadios. Valor 
-algo discreto en comparación a los resultados del Estado de Arte. 
+sobre el tema abordado utilizan im\'agenes multiespectrales. El buen desempeño de SAM hace pensar que las im\'agenes 
+RGB son una alternativa viable y barata para entrenar modelos de detección en im\'agenes satelitales, con un rendimiento aceptable. 
+
 
 Los autores concluyen que las t\'ecnicas de aprendizaje no supervisado, por si solas, no son las m\'as apropiadas 
 para enfrentar los problemas de detección de objetos en im\'agenes satelitales. Los algoritmos de clustering implementados 
-proveen resultados prometedores, aunque no tan descriptivos y pr\'acticos como los algoritmos supervisados implementados.
+proveen resultados prometedores, aunque no tan descriptivos y pr\'acticos como los algoritmos supervisados implementados o la 
+propuesta de SAM.
 
 \section{Resultados}
 
-Ver figuras 1, 2, 3, 4
-
-% \begin{figure}[h]
-%   \centering
-%   \includegraphics[width=0.5\textwidth]{estadio_guillermon_moncada.jpg}
-%   \caption{Imagen Original: Estadio Guillerm\'on Moncada}
-%   \label{fig:estadio_guillermon_moncada}
-% \end{figure}
+Ver figuras \ref{fig:estadio_guillermon_moncada}, \ref{fig:Figure_1}, \ref{fig:SAM}, \ref{fig:Figure_2}, \ref{fig:canny}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.5\textwidth]{Figure_1.png}
-  \caption{Predicci\'on de Faster-RCNN}
+  \includegraphics[width=0.5\textwidth]{estadio_guillermon_moncada.jpg}
+  \caption{Imagen Original: Estadio Guillerm\'on Moncada}
+  \label{fig:estadio_guillermon_moncada}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{SAM.png}
+  \caption{Predicci\'on de Faster-RCNN para la im\'agen \ref{fig:estadio_guillermon_moncada}}
   \label{fig:Figure_1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figure_1.png}
+    \caption{Predicci\'on y segmentaci\'on de SAM para la im\'agen \ref{fig:estadio_guillermon_moncada}}
+    \label{fig:SAM}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{Figure_2.png}
-  \caption{K-Means RGB + XY}
+  \caption{K-Means RGB + XY: segmentación para la im\'agen \ref{fig:estadio_guillermon_moncada}}
   \label{fig:Figure_2}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{canny.png}
-  \caption{K-Means + Canny}
+  \caption{K-Means + Canny: segmentación para la im\'agen \ref{fig:estadio_guillermon_moncada}}
   \label{fig:canny}
 \end{figure}
 
@@ -283,7 +474,7 @@ Ver figuras 1, 2, 3, 4
     \bibitem{citekey}
         Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. "Going Deeper with Convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015. doi: 10.1109/CVPR.2015.7298594
 
-    \bibitem{citekey}
+    \bibitem{xception}
         François Chollet. "Xception: Deep Learning with Depthwise Separable Convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017. doi: 10.1109/CVPR.2017.195
 
     \bibitem{citekey}
@@ -313,8 +504,14 @@ Ver figuras 1, 2, 3, 4
     \bibitem{citekey}
         M M Zhu, Y L Xu, S P Ma, H Q Ma, "Airport Detection on Remote Sensing Images Using Fater Region-based Convolutional Neural Network", Journal of Physics: Conference Series, vol.1060, pp.012037, 2018. https://iopscience.iop.org/article/10.1088/1742-6596/1060/1/012037/meta
 
-    
+    \bibitem{resnet}
+        Targ, Sasha, Diogo Almeida, y Kevin Lyman. «Resnet in Resnet: Generalizing Residual Architectures». arXiv, 25 de marzo de 2016. https://doi.org/10.48550/arXiv.1603.08029.
 
+    \bibitem{inceptionv3}
+        Xia, Xiaoling, Cui Xu, y Bing Nan. «Inception-v3 for flower classification». En 2017 2nd International Conference on Image, Vision and Computing (ICIVC), 783-87, 2017. https://doi.org/10.1109/ICIVC.2017.7984661.
+
+    \bibitem{densenet}
+        Zhang, Ke, Yurong Guo, Xinsheng Wang, Jinsha Yuan, y Qiaolin Ding. «Multiple Feature Reweight DenseNet for Image Classification». IEEE Access 7 (2019): 9872-80. https://doi.org/10.1109/ACCESS.2018.2890127.
 
 
   \end{thebibliography}
