@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  27 JUN 2023 13:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.3.31)  27 JUN 2023 20:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -332,30 +332,56 @@ Package pdftex.def Info: mobilnet_v3_large_320_fpn_20e.png  used on input line 4
 <estadio_guillermon_moncada.jpg, id=46, 559.50967pt x 559.50967pt>
 File: estadio_guillermon_moncada.jpg Graphic file (type jpg)
 <use estadio_guillermon_moncada.jpg>
-Package pdftex.def Info: estadio_guillermon_moncada.jpg  used on input line 455.
+Package pdftex.def Info: estadio_guillermon_moncada.jpg  used on input line 452.
 (pdftex.def)             Requested size: 173.56177pt x 173.55719pt.
- [11]
-<SAM.png, id=50, 570.933pt x 586.8324pt>
-File: SAM.png Graphic file (type png)
-<use SAM.png>
-Package pdftex.def Info: SAM.png  used on input line 462.
-(pdftex.def)             Requested size: 173.56177pt x 178.39711pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figure_1.png, id=51, 361.35pt x 361.35pt>
-File: Figure_1.png Graphic file (type png)
-<use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 469.
-(pdftex.def)             Requested size: 173.56177pt x 173.56181pt.
+<SAM.png, id=47, 570.933pt x 586.8324pt>
+File: SAM.png Graphic file (type png)
+<use SAM.png>
+Package pdftex.def Info: SAM.png  used on input line 459.
+(pdftex.def)             Requested size: 173.56177pt x 178.39711pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Screenshot 2023-06-24 150014.jpg, id=48, 1035.87pt x 563.85657pt>
+File: Screenshot 2023-06-24 150014.jpg Graphic file (type jpg)
+<use Screenshot 2023-06-24 150014.jpg>
+Package pdftex.def Info: Screenshot 2023-06-24 150014.jpg  used on input line 466.
+(pdftex.def)             Requested size: 173.56177pt x 94.46915pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<sam dos estadios.png, id=49, 686.565pt x 399.6531pt>
+File: sam dos estadios.png Graphic file (type png)
+<use sam dos estadios.png>
+Package pdftex.def Info: sam dos estadios.png  used on input line 473.
+(pdftex.def)             Requested size: 173.56177pt x 101.02899pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<faster rcnn dos estadios.png, id=50, 388.8126pt x 312.9291pt>
+File: faster rcnn dos estadios.png Graphic file (type png)
+<use faster rcnn dos estadios.png>
+Package pdftex.def Info: faster rcnn dos estadios.png  used on input line 480.
+(pdftex.def)             Requested size: 173.56177pt x 139.6899pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<fastergosu.png, id=51, 318.7107pt x 312.9291pt>
+File: fastergosu.png Graphic file (type png)
+<use fastergosu.png>
+Package pdftex.def Info: fastergosu.png  used on input line 487.
+(pdftex.def)             Requested size: 173.56177pt x 170.41643pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 <Figure_2.png, id=52, 462.528pt x 346.896pt>
 File: Figure_2.png Graphic file (type png)
 <use Figure_2.png>
-Package pdftex.def Info: Figure_2.png  used on input line 476.
+Package pdftex.def Info: Figure_2.png  used on input line 494.
 (pdftex.def)             Requested size: 173.56177pt x 130.17036pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -363,60 +389,61 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <canny.png, id=53, 536.60475pt x 537.207pt>
 File: canny.png Graphic file (type png)
 <use canny.png>
-Package pdftex.def Info: canny.png  used on input line 483.
+Package pdftex.def Info: canny.png  used on input line 501.
 (pdftex.def)             Requested size: 173.56177pt x 173.75409pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 496.
-(C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+[11]
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 514.
+ (C:\Users\Chuchi\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Underfull \hbox (badness 2150) in paragraph at lines 496--497
+Underfull \hbox (badness 2150) in paragraph at lines 514--515
 \OT1/cmr/m/n/9 ro Su-gi-mo-to, Hi-roshi Ishi-ka-wa, y Ryo-su-ke Na-ka-mu-ra. []Detection by clas-
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 496--497
+Underfull \hbox (badness 4132) in paragraph at lines 514--515
 \OT1/cmr/m/n/9 si-fi-ca-tion of buil-dings in mul-tis-pec-tral sa-te-lli-te ima-gery[]. En 2016 23rd
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 496--497
+Underfull \hbox (badness 5331) in paragraph at lines 514--515
 \OT1/cmr/m/n/9 In-ter-na-tio-nal Con-fe-ren-ce on Pat-tern Re-cog-ni-tion (ICPR), 3344-49, 2016.
  []
 
-[12 <./estadio_guillermon_moncada.jpg>]
-Underfull \hbox (badness 1924) in paragraph at lines 520--521
+
+Underfull \hbox (badness 1924) in paragraph at lines 538--539
 \OT1/cmr/m/n/9 proach", En 2016 IEEE Transac-tions on Geos-cien-ce and Re-mo-te Sen-sing,
  []
 
-
-Underfull \hbox (badness 2894) in paragraph at lines 535--536
+[12 <./estadio_guillermon_moncada.jpg>] [13 <./SAM.png> <./Screenshot 2023-06-24 150014.jpg>]
+Underfull \hbox (badness 2894) in paragraph at lines 553--554
 []\OT1/cmr/m/n/9 M M Zhu, Y L Xu, S P Ma, H Q Ma, .[]irport De-tec-tion on Re-
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 535--536
+Underfull \hbox (badness 1910) in paragraph at lines 553--554
 \OT1/cmr/m/n/9 mo-te Sen-sing Ima-ges Using Fa-ter Region-based Con-vo-lu-tio-nal Neu-ral Net-
  []
 
 
-Underfull \hbox (badness 4242) in paragraph at lines 535--536
+Underfull \hbox (badness 4242) in paragraph at lines 553--554
 \OT1/cmr/m/n/9 work", Jour-nal of Phy-sics: Con-fe-ren-ce Se-ries, vol.1060, pp.012037, 2018.
  []
 
-[13 <./SAM.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
 []\OT1/cmr/m/n/9 Targ, Sasha, Dio-go Al-mei-da, y Ke-vin Ly-man. []Resnet in Res-net:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
 \OT1/cmr/m/n/9 Ge-ne-ra-li-zing Re-si-dual Ar-chi-tec-tu-res[]. ar-Xiv, 25 de mar-zo de 2016.
  []
 
-[14 <./Figure_1.png> <./Figure_2.png>] [15 <./canny.png>] (doc.aux
+[14 <./sam dos estadios.png> <./faster rcnn dos estadios.png>] [15 <./fastergosu.png> <./Figure_2.png>] [16 <./canny.png>] (doc.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -425,17 +452,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3245 strings out of 478582
- 53197 string characters out of 2843872
- 376973 words of memory out of 3000000
- 21420 multiletter control sequences out of 15000+600000
+ 3269 strings out of 478582
+ 53906 string characters out of 2843872
+ 377003 words of memory out of 3000000
+ 21441 multiletter control sequences out of 15000+600000
  473686 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,9n,62p,547b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\Chuchi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Chuchi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lasy9.pfb>
-Output written on doc.pdf (15 pages, 2448469 bytes).
+Output written on doc.pdf (16 pages, 7086138 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
+ 136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -384,7 +384,7 @@ mAP Test\_Dataset: Mean Average Presition sobre Cuba Stadia
     4 & mobilnet\_v3\_large\_320\_fpn & 20 & 6894 & 700 & 0.0125 \\
     5 & mobilnet\_v3\_large\_fpn & 5 & 3527 & 300 & 0.0005 \\
     6 & mobilnet\_v3\_large\_fpn & 15 & 6894 & 700 & 0.0051 \\
-    7 & resnet50\_fpn & 20 & 6894 & 700 & 0 \\
+    7 & resnet50\_fpn & 20 & 6894 & 700 & 0.1787 \\
     \hline
     \end{tabular}
     \caption{Resultados de diferentes experimentos con diferentes backbones y configuraciones.}
@@ -426,7 +426,10 @@ Los resultados obtenidos son prometedores dado que solo se usan im\'agenes en RG
 sobre el tema abordado utilizan im\'agenes multiespectrales. Los m\'etricas obetenidas para la mejor variante del modelo 
 Faster-RCNN no est\'an muy distantes de las obtenidas por SAM en el mismo conjunto de prueba. Por tanto, se concluye 
 que las im\'agenes satelitales en RGB pueden ser suficientes para lograr un entrenar un modelo de detección con resultados 
-satisfactorios. 
+satisfactorios.
+
+El rendimiento de Faster-RCNN en im\'agenes con m\'ultiples estadios est\'a lejos de ser satisfactorio. Se tiene la 
+hip\'otesis de que el mal resultado es debido a que el el conjunto de entrenamiento no hay im\'agenes con m\'ultiples estadios.
 
 Por otro lado, recalcar el buen rendimiento de SAM. Este modelo no fue reentrenado con im\'agenes de el territorio nacional y 
 a\'un as\'i logra una segmentación correcta en la mayor\'ia de las fotos de estadios cubanos. Aunque su rendimiento en im\'agenes 
@@ -437,18 +440,12 @@ para enfrentar los problemas de detección de objetos en im\'agenes satelitales.
 proveen resultados prometedores, aunque no tan descriptivos y pr\'acticos como los algoritmos supervisados implementados o la 
 propuesta de SAM.
 
-\section{Trabajos pendientes}
-Esta secci\'on ser\'a eliminada en cuanto se terminen las labores pendientes:
 
-\begin{itemize}
-    \item Faltan los resultados del experimento 7 de Faster-RCNN
-    \item Luego de tener entrenado ese modelo, posiblemente el mejor, probarlo con fotos que contengan mas de un estadio
-    \item Añadir al informe una prediccion de SAM en im\'agenes con m\'as de un estadio.
-\end{itemize}
 
 \section{Resultados}
 
-Ver figuras \ref{fig:estadio_guillermon_moncada}, \ref{fig:Figure_1}, \ref{fig:SAM}, \ref{fig:Figure_2}, \ref{fig:canny}.
+Ver figuras \ref{fig:estadio_guillermon_moncada}, \ref{fig:Figure_1}, \ref{fig:SAM}, \ref{fig:Figure_2},
+\ref{fig:canny}, \ref{fig:capital}, \ref{fig:SAM2}, \ref{fig:faster2}.
 
 \begin{figure}[h]
   \centering
@@ -461,14 +458,35 @@ Ver figuras \ref{fig:estadio_guillermon_moncada}, \ref{fig:Figure_1}, \ref{fig:S
   \centering
   \includegraphics[width=0.5\textwidth]{SAM.png}
   \caption{Predicci\'on y segmentación de SAM para la im\'agen \ref{fig:estadio_guillermon_moncada}}
-  \label{fig:Figure_1}
+  \label{fig:SAM}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{Figure_1.png}
+    \includegraphics[width=0.5\textwidth]{Screenshot 2023-06-24 150014.jpg}
+    \caption{Im\'agen de la capital con dos estadios}
+    \label{fig:capital}
+  \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{sam dos estadios.png}
+    \caption{Predicci\'on y segmentación de SAM para la im\'agen \ref{fig:capital}}
+    \label{fig:SAM2}
+  \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{faster rcnn dos estadios.png}
+    \caption{Predicci\'on de Faster-RCNN para la im\'agen \ref{fig:capital}}
+    \label{fig:faster2}
+  \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fastergosu.png}
     \caption{Predicci\'on de Faster-RCNN para la im\'agen \ref{fig:estadio_guillermon_moncada}}
-    \label{fig:SAM}
+    \label{fig:Figure_1}
 \end{figure}
 
 \begin{figure}[h]
